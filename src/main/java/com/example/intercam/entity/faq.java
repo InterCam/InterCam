@@ -20,7 +20,4 @@ public class faq {
 
     @NotNull
     private String contents;
-
-    @NotNull
-    private  String auth;
 }

@@ -37,8 +37,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .headers().disable();
 
         http.authorizeRequests()
-                .antMatchers("/join", "/assets/**", "/", "/h2-console/**", "/faq/**").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
+                //.antMatchers("","/","/join", "/assets/**", "/css/**", "/faq/**", "/notice/**").permitAll()
+                //.antMatchers("/admin/**").hasRole(Role.ADMIN.name())
+                //.anyRequest().authenticated()
                 .expressionHandler(securityExpressionHandler())
             .and()
                 .formLogin().permitAll()

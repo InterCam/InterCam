@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
+//변경시간 & 생성시간필요
 public enum Role {
     USER("ROLE_GUEST","사용자"),
     ANALYST("ROLE_ANALYST","평가자"),
@@ -12,5 +13,4 @@ public enum Role {
 
     private final String key;
     private final String title;
-
 }

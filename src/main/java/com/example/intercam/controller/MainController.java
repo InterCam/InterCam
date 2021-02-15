@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-
     @GetMapping({"","/"})
     public String index(@AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:userResponseDto")
                         UserResponseDto userResponseDto, Model model){
@@ -20,11 +19,8 @@ public class MainController {
         return "main";
     }
 
-    @GetMapping("/auth-login_r")
-    public String index(Error error){
-        System.out.println(error.getMessage());
-
+    @GetMapping("/Login")
+    public String index(){
         return "main";
     }
-
 }

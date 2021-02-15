@@ -18,7 +18,7 @@ public class VideoController {
 
     @GetMapping("/video")
     public String video(){
-        return "file";
+        return "Sample/file";
     }
 
     @PostMapping("/api/v1/upload")

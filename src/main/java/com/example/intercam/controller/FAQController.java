@@ -1,6 +1,7 @@
 package com.example.intercam.controller;
 
 
+import com.example.intercam.dto.FAQResponseDto;
 import com.example.intercam.entity.faq;
 import com.example.intercam.service.FAQService;
 import lombok.RequiredArgsConstructor;
@@ -18,17 +19,24 @@ public class FAQController {
 
     @GetMapping("/faq")
     public String faq(Model model){
-        List<faq> faqList = faqService.get_faq();
+        List<FAQResponseDto> faqList = faqService.get_faq();
         model.addAttribute("faqList", faqList);
-        return "faq";
+        return "list/faqlist";
     }
 
+    //TODO 아래로 내리는 것 구현하면 지움
     @GetMapping("/faq/contents")
     public String faq(Integer id, Model model){
         faq faq = faqService.findFAQ(id);
 
         model.addAttribute("faq", faq);
 
-        return "contents";
+        return "Sample/contents";
+    }
+
+    //TODO 1. 등록을 DB에 직접? 아니면 따로 생성? 2. 따로 생성하면 View 페이지 생성
+    @GetMapping("/admin/faq/register")
+    public String register(){
+        return null;
     }
 }
