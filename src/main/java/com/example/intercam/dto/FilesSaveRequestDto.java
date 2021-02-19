@@ -1,6 +1,6 @@
 package com.example.intercam.dto;
 
-import com.example.intercam.entity.Files;
+import com.example.intercam.Sample.Files_replace;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +18,7 @@ public class FilesSaveRequestDto {
         this.filePath = filePath;
     }
 
-    public Files toEntity(){
-        return Files.builder().fileName(fileName).filePath(filePath).build();
+    public Files_replace toEntity(){
+        return Files_replace.builder().fileName(fileName).filePath(filePath).build();
     }
 }

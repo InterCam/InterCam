@@ -5,14 +5,15 @@ import lombok.Data;
 
 @Data
 public class NoticeResponseDto {
-
     private Long id;
     private String title;
     private String content;
+    private int views;
 
-    public NoticeResponseDto(Notice notice) {
-        this.id = notice.getId();
-        this.title = notice.getTitle();
-        this.content = notice.getContent();
+    public NoticeResponseDto(Notice notice){
+        id = notice.getId();
+        title = notice.getTitle();
+        content = notice.getContent();
+        views = notice.getViews();
     }
 }

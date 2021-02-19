@@ -3,15 +3,14 @@ package com.example.intercam.service;
 import com.example.intercam.dto.NoticeRequestDto;
 import com.example.intercam.dto.NoticeResponseDto;
 import com.example.intercam.entity.Notice;
-import com.example.intercam.entity.NoticeRepository;
+import com.example.intercam.Repository.NoticeRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
-import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -20,41 +19,28 @@ public class NoticeService {
     private final NoticeRepository noticeRepository;
 
     @Transactional
-    public List<NoticeResponseDto> getNoticeList(){
-        List<Notice> noticeList = noticeRepository.findAll();
-        List<NoticeResponseDto> responseDtos = new ArrayList<>();
+    public NoticeResponseDto getNotice(Long id) {
+        Notice notice = noticeRepository.findById(id).orElseThrow(()
+                -> new IllegalArgumentException("존재하지 않는 공지사항입니다!"));
 
-        for(Notice tmp:noticeList){
-            responseDtos.add(new NoticeResponseDto(tmp));
-        }
+        notice.plusViews();
 
-        return responseDtos;
+        return new NoticeResponseDto(notice);
     }
 
-    @Transactional
-    public NoticeResponseDto getNotice(Long id) {
-        Optional<Notice> notice  = noticeRepository.findById(id);
+    @Transactional(readOnly = true)
+    public Page<Notice> findAllDesc(Pageable pageable) {
+        int page = (pageable.getPageNumber()==0)? 0 :(pageable.getPageNumber()-1);
 
-        return new NoticeResponseDto(noticeRepository.findById(id).orElseThrow(()->new IllegalArgumentException("존재하지 않는 공지사항입니다!")));
+        pageable = PageRequest.of(page, 10, Sort.by("id").descending());
+
+        return noticeRepository.findAll(pageable);
     }
 
     @Transactional
     public void saveNotice(NoticeRequestDto noticeRequestDto){
         noticeRepository.save(noticeRequestDto.toEntity());
     }
-
-    @PostConstruct
-    @Transactional
-    public void NoticeList() {
-        Notice notice1 = Notice.builder().title( "interCam 공지사항").content("1번 내용").build();
-        noticeRepository.save(notice1);
-
-        Notice notice2 = Notice.builder().title( " interCam 이용방법").content("2번 내용").build();
-        noticeRepository.save(notice2);
-
-        Notice notice3 = Notice.builder().title( " interCam 영상설정공지  ").content("3번 내용").build();
-        noticeRepository.save(notice3);
-    }
-
-    //수정 기능 추가
+    
+    //TODO 후순위. Notice 수정 기능
 }

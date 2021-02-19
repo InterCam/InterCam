@@ -3,7 +3,7 @@
 <table border="1">
     <thead>
     <th>
-        FAQ
+        Notice
     </th>
     </thead>
 
@@ -20,7 +20,15 @@
             <a th:text="${notice.content}"></a>
         </td>
     </tr>
+
+    <tr>
+        <td>
+            <a th:text="${notice.views}"></a>
+        </td>
+    </tr>
+    <a href="/notice" methods="get">공지사항으로</a>
     </tbody>
+
 
 </table>
 </html>

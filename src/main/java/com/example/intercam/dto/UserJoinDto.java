@@ -22,12 +22,6 @@ public class UserJoinDto {
     }
 
     public User toEntity(){
-        return User.builder()
-                .username(username)
-                .password(password)
-                .name(name)
-                .birth(birth)
-                .phone(phone)
-                .build();
+        return new User(this);
     }
 }

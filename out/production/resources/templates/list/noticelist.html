@@ -84,7 +84,6 @@
                     </li>
                 </ul>
 
-
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item" th:class="${activeTab == 'Login'}? 'active':null" sec:authorize="!isAuthenticated()">
                         <a class="nav-link" th:href="@{/login}" href="/login">login</a>
@@ -92,7 +91,6 @@
                 </ul>
 
                 <form name="myForm" action="/logout" method="POST"></form>
-
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav navbar-nav navbar-right th:class="th:class="${activeTab == 'mypage'}? 'active':null" sec:authorize="isAuthenticated()">
                         <a class="nav-link" th:href="@{/mypage}" href="/mypage" sec:authentication="name" ></a>
@@ -107,8 +105,9 @@
         <ul class="board">
             <h2>공지사항</h2>
             <ul>
-            <li class="fl tc w70 title t_line">번호</li>
-            <li class="fl tc w500 title t_line">제목</li>
+                <li class="fl tc w70 title t_line">번호</li>
+                <li class="fl tc w500 title t_line">제목</li>
+                <li class="fl tc w70 title t_line">조회수</li>
             </ul>
         </ul>
 
@@ -118,6 +117,8 @@
                 <li class="fl tc w500 list t_line lt_line">
                     <a th:href="@{/notice/contents/(id=${notice.id})}" th:text="${notice.title}" name="id" id="clickme"></a>
                 </li>
+                <li class="fl tc w70 list t_line lt_line" th:text="${notice.views}"></li>
+
             </ul>
         </ul>
     </div>

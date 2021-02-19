@@ -6,8 +6,8 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 //변경시간 & 생성시간필요
-public enum Role {
-    USER("ROLE_GUEST","사용자"),
+public enum Auth {
+    USER("ROLE_USER","유저"),
     ANALYST("ROLE_ANALYST","평가자"),
     ADMIN("ROLE_ADMIN","관리자");
 

@@ -1,7 +1,6 @@
 package com.example.intercam.entity;
 
 import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +11,6 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "persistent_logins")
 @Getter
-@Setter
 public class PersistentLogins {
     @Id
     @Column(length = 64)

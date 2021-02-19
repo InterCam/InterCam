@@ -1,11 +1,11 @@
-package com.example.intercam.entity;
+package com.example.intercam.Sample;
 
 import lombok.Builder;
 
 import javax.persistence.*;
 
 @Entity
-public class Files {
+public class Files_replace {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Files {
     private String filePath;
 
     @Builder
-    public Files(String fileName, String filePath) {
+    public Files_replace(String fileName, String filePath) {
         this.fileName = fileName;
         this.filePath = filePath;
     }

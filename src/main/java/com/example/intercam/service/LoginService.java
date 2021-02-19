@@ -2,7 +2,7 @@ package com.example.intercam.service;
 
 import com.example.intercam.dto.UserJoinDto;
 import com.example.intercam.entity.User;
-import com.example.intercam.entity.UserRepository;
+import com.example.intercam.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -32,7 +32,7 @@ public class LoginService {
 
         User user = userRepository.findByUsername(username);
 
-        user.changePassword(bCryptPasswordEncoder.encode(password));
+        //user.changePassword(bCryptPasswordEncoder.encode(password));
 
     }
 }
