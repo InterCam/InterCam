@@ -1,0 +1,112 @@
+## Major 
+create table Major (
+  major_id bigint(20) auto_increment,
+  name1 VARCHAR(20),
+  name2 VARCHAR(20),
+  name3 VARCHAR(20),
+  PRIMARY KEY (major_id) 
+);
+
+## User (major_id , list_id 받아와야 함)
+create table User(
+  user_id bigint(20) auto_increment,
+  username VARCHAR(20) NOT NULL,
+  name VARCHAR(20) NOT NULL,
+  password VARCHAR(20) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  birth VARCHAR(20),
+  auth VARCHAR(32) default 'User',
+  major_id bigint(20),
+  list_id bigint(20),
+  PRIMARY KEY (user_id) 
+);
+
+## ANALYST User 상속(comments 받아와야 함, major_id, list_id)
+create table ANALYST(
+  analyst_id bigint(20),
+  FOREIGN KEY (analyst_id) REFERENCES user(user_id) ON DELETE CASCADE,
+  contents VARCHAR(255) NOT NULL,
+  img VARCHAR(255),
+  username VARCHAR(20) NOT NULL,
+  name VARCHAR(20) NOT NULL,
+  password VARCHAR(20) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  birth VARCHAR(20),
+  auth VARCHAR(32) default 'User',  ## sql상으로는 상속받아 덮어쓰기가 안됨. But jpa service단에서 해결.
+  comment_id bigint(20),
+  major_id bigint(20),
+  list_id bigint(20),
+  PRIMARY KEY (analyst_id)
+);
+
+## VideoList (commentList, video_id 받아와야 함)
+create table video_list(
+  list_id bigint(20) auto_increment,
+  user_id bigint(20),
+  FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
+  avg_core float,
+  major VARCHAR(34) NOT NULL,
+  education VARCHAR(20),
+  experience VARCHAR(255),
+  status bit(1) NOT NULL,
+  views int(11) default 0,
+  comment_id bigint(20),
+  video_id bigint(20),
+  create_date datetime,
+  modified_date datetime,
+  PRIMARY KEY (list_id) 
+);
+
+## Video (list_id 받아와야함)
+create table Video(
+  video_id bigint(20) auto_increment,
+  title VARCHAR(100) NOT NULL,
+  url VARCHAR(255) NOT NULL,
+  PRIMARY KEY (video_id)
+);
+
+## Comment
+create table Comment(
+  comment_id bigint(20) auto_increment,
+  list_id bigint(20),
+  FOREIGN KEY (list_id) REFERENCES Video_List(list_id) ON DELETE CASCADE,
+  analyst_id bigint(20),
+  FOREIGN KEY (analyst_id) REFERENCES ANALYST(analyst_id) ON DELETE CASCADE,
+  contents longtext NOT NULL,
+  score int(11) default 0,
+  create_data datetime,
+  modified_date datetime,
+  PRIMARY KEY (comment_id)
+);
+
+## Notice
+create table notice(
+  notice_id bigint(20) auto_increment,
+  title VARCHAR(255) NOT NULL,
+  views int(11) default 0,
+  contents VARCHAR(255),
+  create_date datetime,
+  modified_date datetime,
+  PRIMARY KEY (notice_id)
+);
+
+##  FAQ
+create table faq(
+  faq_id bigint(20) auto_increment,
+  title VARCHAR(100) NOT NULL,
+  contents VARCHAR(255) NOT NULL,
+  PRIMARY KEY (faq_id)
+);
+
+## User (major_id , list_id 받아와야 함)
+alter table user add foreign key (major_id) REFERENCES major(major_id);
+ALTER TABLE User ADD FOREIGN KEY (list_id) REFERENCES Video_List(list_id);
+
+## ANALYST User 상속(comments 받아와야 함, major_id, list_id)
+ALTER TABLE ANALYST ADD FOREIGN KEY (comment_id) REFERENCES Comment(Comment_id);
+alter table ANALYST add foreign key (major_id) REFERENCES major(major_id);
+ALTER TABLE ANALYST ADD FOREIGN KEY (list_id) REFERENCES Video_List(list_id);
+
+## VideoList (commentList, video_id 받아와야 함)
+ALTER TABLE Video_List ADD FOREIGN KEY (comment_id) REFERENCES Comment(comment_id);
+ALTER TABLE Video_List ADD FOREIGN KEY (video_id) REFERENCES Video(video_id);
