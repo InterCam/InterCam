@@ -16,11 +16,11 @@ public class MainController {
             model.addAttribute("user",userResponseDto);
         }
         
-        return "main";
+        return "index";
     }
 
     @GetMapping("/Login")
     public String index(){
-        return "main";
+        return "index";
     }
 }
