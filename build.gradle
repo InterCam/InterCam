@@ -33,6 +33,8 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-mail'
 	compile "org.springframework:spring-context-support"
 	compile "com.sun.mail:javax.mail.mail"
+	implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect'
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 }
 
 test {
