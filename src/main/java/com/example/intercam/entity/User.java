@@ -47,7 +47,7 @@ public class User extends BaseTimeEntity {
     public User(UserJoinDto userJoinDto) {
         this.username = userJoinDto.getUsername();
         this.password = userJoinDto.getPassword();
-        this.phone = userJoinDto.getPassword();
+        this.phone = userJoinDto.getPhone();
         this.birth = userJoinDto.getBirth();
         this.name = userJoinDto.getName();
         this.auth = Auth.USER;
@@ -76,5 +76,8 @@ public class User extends BaseTimeEntity {
         major_id = major;
     }
 
+    public void changePassword(String password){
+        this.password = password;
+    }
 
 }
