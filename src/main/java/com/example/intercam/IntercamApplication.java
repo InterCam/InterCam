@@ -4,6 +4,7 @@ import com.example.intercam.entity.FAQ;
 import com.example.intercam.Repository.FAQ_repository;
 import com.example.intercam.entity.Notice;
 import com.example.intercam.Repository.NoticeRepository;
+import com.example.intercam.mail.HtmlEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +19,9 @@ public class IntercamApplication implements CommandLineRunner {
 
 	@Autowired
 	private FAQ_repository faq_repository;
+
+	@Autowired
+	private HtmlEmailService htmlEmailService;
 
 	@Autowired
 	private NoticeRepository noticeRepository;

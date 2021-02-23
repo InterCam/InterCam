@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/list.css" />
-</head>
-<body>
+<!-- 컨텐츠 페이지 CSS 삽입 -->
 <div th:fragment="headerFragment(activeTab)">
+
+    <!--    네비게이션바-->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Intercam</a>
+                <a class="navbar-brand" href="#" th:href="@{/}" >Intercam</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -56,7 +50,7 @@
                         <!--TODO 소개 리스트 링크-->
                         <button class="dropbtn">소개</button>
                         <div class="dropdown-content">
-                            <a href="#">평가원 소개</a>
+                            <a href="/card">평가원 소개</a>
                             <a href="#">사용방법 (다운로드)</a>
                         </div>
                     </li>
@@ -79,7 +73,6 @@
                     </li>
                 </ul>
 
-
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item" th:class="${activeTab == 'Login'}? 'active':null" sec:authorize="!isAuthenticated()">
                         <a class="nav-link" th:href="@{/login}" href="/login">login</a>
@@ -87,7 +80,6 @@
                 </ul>
 
                 <form name="myForm" action="/logout" method="POST"></form>
-
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav navbar-nav navbar-right th:class="th:class="${activeTab == 'mypage'}? 'active':null" sec:authorize="isAuthenticated()">
                         <a class="nav-link" th:href="@{/mypage}" href="/mypage" sec:authentication="name" ></a>
@@ -97,37 +89,6 @@
             </div>
         </div>
     </nav>
-
-
-    <div id="container">
-
-    <!---기본 메뉴--->
-    <ul class="board">
-        <h2>나의 인터뷰 리스트</h2>
-        <li class="fl tc w70 title t_line">번호</li>
-        <li class="fl tc w500 title t_line">제목</li>
-        <li class="fl tc w120 title t_line">글쓴이</li>
-        <li class="fl tc w100 title t_line">작성일</li>
-        <li class="fl tc w100 title ">조회수</li>
-    </ul>
-    <!--- 리스트 --->
-    <ul class="board">
-        <li class="fl tc w70 list t_line lt_line">1</li>
-        <li class="fl tc w500 list t_line lt_line">임원면접 중복예약자 직권 취소안내<span class=" label label-danger">미평가</span></li>
-        <li class="fl tc w120 list t_line lt_line">관리자</li>
-        <li class="fl tc w100 list t_line lt_line">2021-02-11</li>
-        <li class="fl tc w100 list  lt_line">1</li>
-    </ul>
-
-        <ul class="board">
-            <li class="fl tc w70 list t_line lt_line">2</li>
-            <li class="fl tc w500 list t_line lt_line">화상 면접 대기 신청방법<span class="text-right label label-success">평가</span></li>
-            <li class="fl tc w120 list t_line lt_line">관리자</li>
-            <li class="fl tc w100 list t_line lt_line">2021-02-11</li>
-            <li class="fl tc w100 list  lt_line">1</li>
-        </ul>
-
-    </div>
 </div>
-</body>
+</div>
 </html>
