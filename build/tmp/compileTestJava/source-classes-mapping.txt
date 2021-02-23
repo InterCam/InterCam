@@ -1,0 +1,2 @@
+com/example/intercam/IntercamApplicationTests.java
+ com.example.intercam.IntercamApplicationTests
