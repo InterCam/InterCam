@@ -1,7 +1,7 @@
 package com.example.intercam.service;
 
 import com.example.intercam.dto.FilesSaveRequestDto;
-import com.example.intercam.entity.FileRepository;
+import com.example.intercam.Sample.FileRepository_replace;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class FileService {
 
-    private final FileRepository fileRepository;
+    private final FileRepository_replace fileRepositoryReplace;
     @Transactional
     public void save(List<MultipartFile> files) throws Exception{
 
@@ -28,7 +28,7 @@ public class FileService {
                             +file.getOriginalFilename())
                     .build();
 
-            fileRepository.save(requestDto.toEntity());
+            fileRepositoryReplace.save(requestDto.toEntity());
         }
     }
 

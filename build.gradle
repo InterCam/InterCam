@@ -30,7 +30,19 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	implementation('org.springframework.boot:spring-boot-starter-validation')
+	compile 'org.springframework.boot:spring-boot-starter-mail'
+	compile "org.springframework:spring-context-support"
+	implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect'
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+	// https://mvnrepository.com/artifact/com.sun.mail/javax.mail
+	implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
+//	compile "com.sun.mail:javax.mail"
+
+
+
+
 }
+
 
 test {
 	useJUnitPlatform()

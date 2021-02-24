@@ -2,7 +2,7 @@ package com.example.intercam.service;
 
 import com.example.intercam.entity.User;
 import com.example.intercam.entity.UserDetail_r;
-import com.example.intercam.entity.UserRepository;
+import com.example.intercam.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

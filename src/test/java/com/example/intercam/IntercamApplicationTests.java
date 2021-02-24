@@ -8,6 +8,7 @@ class IntercamApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
