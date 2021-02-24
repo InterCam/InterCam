@@ -1,15 +1,17 @@
 package com.example.intercam;
 
-import com.example.intercam.entity.FAQ;
+import com.example.intercam.Repository.AnalysisRepository;
 import com.example.intercam.Repository.FAQ_repository;
-import com.example.intercam.entity.Notice;
 import com.example.intercam.Repository.NoticeRepository;
-import com.example.intercam.mail.HtmlEmailService;
+import com.example.intercam.entity.Analyst;
+import com.example.intercam.entity.FAQ;
+import com.example.intercam.entity.Notice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.transaction.Transactional;
 
@@ -21,10 +23,14 @@ public class IntercamApplication implements CommandLineRunner {
 	private FAQ_repository faq_repository;
 
 	@Autowired
-	private HtmlEmailService htmlEmailService;
+	private AnalysisRepository analysisRepository;
 
 	@Autowired
 	private NoticeRepository noticeRepository;
+
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(IntercamApplication.class, args);
@@ -50,5 +56,23 @@ public class IntercamApplication implements CommandLineRunner {
 
 			noticeRepository.save(notice1);
 		}
+
+		for(int i =1;i<=3;i++){
+
+			Analyst analyst = Analyst.builder().name("분석가"+i)
+					.phone("010"+i+""+i)
+					.username("anlyst"+i)
+					.password(bCryptPasswordEncoder.encode("analyst"+i))
+					.contents("내용"+i)
+					.img("img"+i)
+					.birth("ddd")
+					.name("이름"+i)
+					.build();
+
+			analysisRepository.save(analyst);
+		}
+
+
+
 	}
 }
