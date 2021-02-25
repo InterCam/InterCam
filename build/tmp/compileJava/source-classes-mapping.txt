@@ -87,9 +87,18 @@ com/example/intercam/dto/FAQResponseDto.java
  com.example.intercam.dto.FAQResponseDto
 com/example/intercam/entity/PersistentLogins.java
  com.example.intercam.entity.PersistentLogins
-com/example/intercam/controller/LoginController.java
- com.example.intercam.controller.LoginController
-com/example/intercam/mail/HtmlEmailService.java
- com.example.intercam.mail.HtmlEmailService
+com/example/intercam/service/AnalystService.java
+ com.example.intercam.service.AnalystService
 com/example/intercam/IntercamApplication.java
  com.example.intercam.IntercamApplication
+com/example/intercam/dto/AnalystResponseDto.java
+ com.example.intercam.dto.AnalystResponseDto
+com/example/intercam/dto/AnalystRequestDto.java
+ com.example.intercam.dto.AnalystRequestDto
+ com.example.intercam.dto.AnalystRequestDto$AnalystRequestDtoBuilder
+com/example/intercam/mail/HtmlEmailService.java
+ com.example.intercam.mail.HtmlEmailService
+com/example/intercam/controller/AnalystController.java
+ com.example.intercam.controller.AnalystController
+com/example/intercam/controller/LoginController.java
+ com.example.intercam.controller.LoginController

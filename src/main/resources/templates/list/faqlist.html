@@ -4,7 +4,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-    <link rel="stylesheet" href="css/common/list.css" />
+    <link rel="stylesheet" th:href="@{/css/common/list.css}" />
 
 
     <style>
@@ -15,7 +15,9 @@
 
     <div id="container">
         <ul class="board">
+            <li class="fl tc w500 title t_line">
             <h2>자주하는 질문(FAQ)</h2>
+            </li>
         </ul>
 
         <!--TODO 클릭하면 아래로 내용이 바로 나오도록(해당 링크로 이동하지 않게) 사용-->

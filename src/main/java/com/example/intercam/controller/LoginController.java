@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class LoginController {
 
     private final LoginService loginService;
-    private final HtmlEmailService htmlEmailService;
+     private final HtmlEmailService htmlEmailService;
 
     @GetMapping("/join")
     public String join(){

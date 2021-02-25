@@ -21,7 +21,7 @@ public class AnalystController {
     public String addAnalyst(Model model){
         List<AnalystResponseDto> analysts = analystService.findAll();
         model.addAttribute("analysts", analysts);
-        return "Sample/analyst";
+        return "list/analyst";
     }
 
     @GetMapping("/admin/analyst")
