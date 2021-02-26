@@ -29,7 +29,7 @@
                             <li th:text="${faq.id}"></li>
                             <li style="display: inherit">
                                 <a th:text="${faq.title}" th:id="'faq' + ${faq.id}"></a>
-                                <p th:text="${faq.contents}" style="display : none" th:id="'contents'+${faq.id}"></p>
+                                <p th:text="${faq.contents}" style="display : none" th:id="'contents+title+id'+${faq.id}"></p>
                             </li>
                             <li>2021-02-26</li>
 
