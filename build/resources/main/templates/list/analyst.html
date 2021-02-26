@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/common_layout">
+
+<!--평가원소개-->
+
+<div layout:fragment="content">
+    <link rel="stylesheet" th:href="@{/css/common/analyst.css}" />
+
+    <h2>평가원 소개</h2>
+
+    <div class="card">
+        <ul th:each="analyst:${analysts}">
+        <img th:text="${analyst.img}" alt="analyst" >
+        <div class="container">
+            <h4 th:text="${analyst.name}"><b></b></h4>
+            <p th:text="${analyst.contents}"></p>
+            <br>
+            <br>
+        </div>
+        </ul>
+    </div>
+
+</div>
+</html>
+
+

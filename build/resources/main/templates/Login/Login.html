@@ -4,11 +4,9 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-        <link href="css/common/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-        <link href="css/common/icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/common/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
+    <link th:href="@{/css/common/bootstrap.min.css}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/common/icons.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/common/app.min.css}" id="app-style" rel="stylesheet" type="text/css" />
     <!--    로그인-->
 
     <div class="account-pages my-5 pt-sm-5">
@@ -31,7 +29,7 @@
                                 <a href="/">
                                     <!--TODO Main페이지로 돌아갈 이미지-->
                                     <div class="avatar-md profile-user-wid mb-4">
-                                        <span class="avatar-title rounded-circle bg-light"><img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34"></span>
+                                        <span class="avatar-title rounded-circle bg-light"><img th:src="@{/assets/images/logo.svg}" alt="" class="rounded-circle" height="34"></span>
                                     </div>
                                 </a>
                             </div>
@@ -59,7 +57,7 @@
 
                                     <!--TODO 비밀번호찾는 링크-->
                                     <div class="mt-4 text-center">
-                                        <a href="/change/password" class="text-muted"><i class="mdi mdi-lock mr-1"></i> 비밀번호찾기</a>
+                                        <a href="/change" class="text-muted"><i class="fas fa-lock"></i> 비밀번호찾기</a>
                                     </div>
                                 </form>
                             </div>
@@ -68,7 +66,8 @@
 
                     <div class="mt-5 text-center">
                         <div>
-                            <p>계정이 없으신가요? <a href="/join" class="font-weight-medium text-primary"> 회원가입하러 가기 </a></p>
+                            <p>계정이 없으신가요? <a href="/join" class="font-weight-medium text-primary">일반 회원가입하러 가기 </a></p>
+                            <p>Analyst이신가요? <a href="/admin/analyst" class="font-weight-medium text-primary"> Analyst 회원가입하러 가기 </a></p>
                         </div>
                     </div>
                 </div>
