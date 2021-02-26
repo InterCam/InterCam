@@ -98,7 +98,7 @@ com/example/intercam/dto/AnalystRequestDto.java
  com.example.intercam.dto.AnalystRequestDto$AnalystRequestDtoBuilder
 com/example/intercam/mail/HtmlEmailService.java
  com.example.intercam.mail.HtmlEmailService
-com/example/intercam/controller/AnalystController.java
- com.example.intercam.controller.AnalystController
 com/example/intercam/controller/LoginController.java
  com.example.intercam.controller.LoginController
+com/example/intercam/controller/AnalystController.java
+ com.example.intercam.controller.AnalystController

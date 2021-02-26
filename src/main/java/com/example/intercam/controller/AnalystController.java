@@ -26,7 +26,7 @@ public class AnalystController {
 
     @GetMapping("/admin/analyst")
     public String save(){
-        return "Sample/addAnalyst";
+        return "Login/AddAnalyst";
     }
 
     @PostMapping("/admin/analyst")

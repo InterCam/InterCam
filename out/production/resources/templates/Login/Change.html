@@ -4,11 +4,10 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-    <link th:href="@{/css/common/bootstrap.min.css}" id="bootstrap-style" rel="stylesheet" type="text/css"/>
-    <link th:href="@{/css/common/icons.min.css}" rel="stylesheet" type="text/css"/>
-    <link th:href="@{/css/common/app.min.css}" id="app-style" rel="stylesheet" type="text/css"/>
+    <link href="css/common/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="css/common/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/common/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
-<!--    비밀번호변경-->
     <div class="account-pages my-5 pt-sm-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -18,8 +17,8 @@
                             <div class="row">
                                 <div class="col-7">
                                     <div class="text-primary p-4">
-                                        <h5 class="text-primary">InterCam 비밀번호 변경</h5>
-                                        <p>비밀번호 변경을 위해 아래 정보를 입력해주세요</p>
+                                        <h5 class="text-primary">InterCam회원가입</h5>
+                                        <p>새로운 계정을 만들어주세요.</p>
                                     </div>
                                 </div>
                             </div>
@@ -29,7 +28,7 @@
                                 <a href="/">
                                     <div class="avatar-md profile-user-wid mb-4">
                                         <!-- TODO Main페이지로 돌아갈 이미지 -->
-                                        <span class="avatar-title rounded-circle bg-light"><img th:src="@{/assets/images/logo.svg}" alt="" class="rounded-circle" height="34"></span>
+                                        <span class="avatar-title rounded-circle bg-light"><img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34"></span>
                                     </div>
                                 </a>
                             </div>
@@ -51,7 +50,7 @@
                                     </div>
 
                                     <div class="mt-4">
-                                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">비밀번호 변경</button>
+                                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">비밀번호 바꾸기</button>
                                     </div>
                                 </form>
                             </div>
@@ -59,13 +58,14 @@
                     </div>
                     <div class="mt-5 text-center">
                         <div>
-                            <p>계정이 없으신가요? <a href="/join" class="font-weight-medium text-primary"> 일반 회원가입하러 가기 </a></p>
-                            <p>Analyst이신가요? <a href="/admin/analyst" class="font-weight-medium text-primary"> Analyst 회원가입하러 가기 </a></p>
+                            <p>계정이 없으신가요?<a href="/login" class="font-weight-medium text-primary"></a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </body>
 </div>
 </html>
+

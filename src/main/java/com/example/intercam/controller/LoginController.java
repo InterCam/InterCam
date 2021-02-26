@@ -42,13 +42,12 @@ public class LoginController {
         return "Login/Login";
     }
 
-    //TODO 패스워드 변경 및 인증 방법 구현
-    @GetMapping("/change/password")
+    @GetMapping("/change")
     public String change(){
-        return "Sample/change";
+        return "Login/Change";
     }
 
-    @PostMapping("/change/password")
+    @PostMapping("/change")
     public String changing(ChangeResponseDto changeResponseDto){
 
         String uuid = loginService.find(changeResponseDto);

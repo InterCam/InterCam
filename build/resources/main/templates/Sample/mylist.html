@@ -4,10 +4,11 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-    <link rel="stylesheet" href="css/common/list.css" />
+    <link rel="stylesheet" th:href="@{/css/common/list.css}" />
 
     <div id="container">
 
+<!--        my 인터뷰  리스트-->
         <!---기본 메뉴--->
         <ul class="board">
             <h2>나의 인터뷰 리스트</h2>
