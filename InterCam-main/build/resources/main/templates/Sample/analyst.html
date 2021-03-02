@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/common_layout">
+
+<div layout:fragment="content">
+<h1>왜안됨?</h1>
+    <div id="container">
+<ul class="board">
+    <ul th:each="analyst:${analysts}">
+        <li class="w500 fl tc  list t_line lt_line">
+            <a th:text="${analyst.img}"></a>
+            <p th:text="${analyst.contents}"></p>
+            <p th:text="${analyst.name}"></p>
+        </li>
+    </ul>
+</ul>
+</div>
+</div>
+
+</html>

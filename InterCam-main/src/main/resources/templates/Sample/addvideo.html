@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/common_layout">
+<div layout:fragment="content">
+
+
+    제목 = 작성자
+
+    분야 -
+    지원분야: 레디오버튼  IT,  금융 전기 의료
+    학력 : 레디오버튼  중졸,고졸 , 대졸
+    사진공개여부: 레디오버튼  공개,비공개 status
+    구직경험 : 5회이상 3-4회 1-2회 없음
+    첨부파일
+
+    <h2>Interview/등록하기</h2>
+
+    <h1>지원분야</h1>
+    <input type="radio" name="chk_info" value="IT">IT
+    <input type="radio" name="chk_info" value="금융">금융
+    <input type="radio" name="chk_info" value="웹디자인">전기
+    <input type="radio" name="chk_info" value="웹디자인">의료
+
+
+
+
+    <form th:action="@{/gallery}" method="post" enctype="multipart/form-data">
+    <input type="text" name="title"> <br>
+
+     <input type="file" name="file"> <br>
+    <button>등록하기</button>
+</form>
+</div>
+
+</html>

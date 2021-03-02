@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div layout:fragment="content">
+
+    <div>
+        <table border="1" bordercolor="black" th:each="videoList:${videoLists}">
+                <tr>
+                    <td><a href="#" th:text="${videoList.video_id.title}"></a></td>
+                    <td th:text= "'작성자:' + ${videoList.user_id.name}"></td>
+                    <td th:text="'조회수:' + ${videoList.views}"></td>
+                    <td th:text="'평점: ' + ${videoList.avgScore}"></td>
+                </tr>
+                <tr>
+                    <video controls poster="">
+                        <source src="${videoList.video_id.url}" type="mov">
+                    </video>
+
+                </tr>
+        </table>
+    </div>
+
+
+</div>
+</html>

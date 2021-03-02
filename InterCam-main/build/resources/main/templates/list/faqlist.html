@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/common_layout">
+<div layout:fragment="content">
+    <link rel="stylesheet" href="css/common/list.css" />
+
+
+    <style>
+        #container a{
+            display:block;
+        }
+    </style>
+
+    <div id="container">
+        <ul class="board">
+            <h2>자주하는 질문(FAQ)</h2>
+        </ul>
+
+        <!--TODO 클릭하면 아래로 내용이 바로 나오도록(해당 링크로 이동하지 않게) 사용-->
+        <ul class="board">
+            <ul th:each="faq:${faqList}">
+                <li class="w500 fl tc  list t_line lt_line" style="display: inherit">
+                    <a th:text="${faq.title}" th:id="'faq' + ${faq.id}"></a>
+                    <p th:text="${faq.contents}" style="display : none" th:id="'contents'+${faq.id}"></p>
+                </li>
+            </ul>
+        </ul>
+
+        <script>
+            $(document).ready(function(){
+                $("#faq1").click(function(){
+                    $("#contents1").slideToggle();
+                    $("#contents2").slideUp();
+                    $("#contents3").slideUp()
+                    $("#contents4").slideUp()
+                    $("#contents5").slideUp()
+                    $("#contents6").slideUp()
+                    $("#contents7").slideUp()
+                    $("#contents8").slideUp()
+                    $("#contents9").slideUp()
+                    $("#contents10").slideUp()
+                    $("#contents11").slideUp()
+                });
+                $("#faq2").click(function(){
+                    $("#contents1").slideUp();
+                    $("#contents2").slideToggle();
+                    $("#contents3").slideUp()
+                    $("#contents4").slideUp()
+                    $("#contents5").slideUp()
+                    $("#contents6").slideUp()
+                    $("#contents7").slideUp()
+                    $("#contents8").slideUp()
+                    $("#contents9").slideUp()
+                    $("#contents10").slideUp()
+                    $("#contents11").slideUp()
+                });
+            });
+        </script>
+    </div>
+</div>
+
+</html>

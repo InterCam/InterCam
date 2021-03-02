@@ -1,0 +1,105 @@
+## Major 
+create table Major (
+  major_id bigint(20) auto_increment NOT NULL,
+  name1 VARCHAR(20),
+  name2 VARCHAR(20),
+  name3 VARCHAR(20),
+  PRIMARY KEY (major_id) 
+);
+
+## User (major_id , list_id 받아와야 함)
+create table User(
+  user_id bigint(20) auto_increment NOT NULL,
+  create_date datetime,
+  modified_date datetime,
+  auth VARCHAR(32) default  'User',
+  birth VARCHAR(20) NOT NULL,
+  name VARCHAR(20) NOT NULL,
+  password VARCHAR(20) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  username VARCHAR(10) NOT NULL UNIQUE,
+  major_id bigint(20),
+  FOREIGN KEY (major_id) REFERENCES major(major_id) ON DELETE CASCADE, 
+  PRIMARY KEY (user_id) 
+);
+
+## ANALYST User 상속(comments 받아와야 함)
+create table ANALYST(
+  user_id bigint(20) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
+  create_date datetime,
+  modified_date datetime,
+  auth VARCHAR(32) default  'ANALYST',
+  birth VARCHAR(20) NOT NULL,
+  name VARCHAR(20) NOT NULL,
+  password VARCHAR(20) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  username VARCHAR(10) NOT NULL UNIQUE,
+  contents VARCHAR(255) NOT NULL,
+  img VARCHAR(255),
+  PRIMARY KEY (user_id)
+);
+
+## VideoList (commentList, video_id 받아와야 함)
+create table VideoList(
+  list_id bigint(20) auto_increment NOT NULL,
+  user_id bigint(20) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
+  avgScore float,
+  major VARCHAR(255) NOT NULL,
+  education VARCHAR(255),
+  experience VARCHAR(255),
+  status bit(1) NOT NULL,
+  views int(11) default 0,
+  video_id bigint(20),
+  PRIMARY KEY (list_id) 
+);
+
+## Video (list_id 받아와야함)
+create table Video(
+  video_id bigint(20) auto_increment NOT NULL,
+  title VARCHAR(20) NOT NULL,
+  url VARCHAR(20) NOT NULL,
+  PRIMARY KEY (video_id)
+);
+
+## Comment
+create table Comment(
+  comment_id bigint(20) auto_increment NOT NULL,
+  list_id bigint(20),
+  FOREIGN KEY (list_id) REFERENCES VideoList(list_id) ON DELETE CASCADE,
+  user_id bigint(20),
+  FOREIGN KEY (user_id) REFERENCES ANALYST(user_id) ON DELETE CASCADE,
+  contents longtext NOT NULL,
+  score int(11) default 0 NOT NULL,
+  PRIMARY KEY (comment_id)
+);
+
+## Notice
+create table notice(
+  notice_id bigint(20) auto_increment NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  content VARCHAR(255) NOT NULL,
+  views int(11) default 0,
+  PRIMARY KEY (notice_id)
+);
+
+##  FAQ
+create table faq(
+  faq_id bigint(20) auto_increment NOT NULL,
+  title VARCHAR(20) NOT NULL,
+  contents VARCHAR(20) NOT NULL,
+  PRIMARY KEY (faq_id)
+);
+
+## User (major_id , list_id 받아와야 함) // JPA -> SQL 시 Many 측 반영이 안 됨. Join으로 받아올 sql..
+SELECT * FROM user, major WHERE user.major_id= major.major_id;
+SELECT * FROM user, video_list WHERE user.user_id= video_list.list_id;
+
+## ANALYST User 상속(comments 받아와야 함)
+SELECT * FROM user, comment WHERE user.user_id= comment.user_id;
+
+
+## VideoList (commentList, video_id 받아와야 함)
+SELECT * FROM video_list, comment WHERE video_list.list_id= comment.list_id;
+SELECT * FROM video_list, video WHERE video_list.list_id= video.list_id;

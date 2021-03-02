@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>회원가입</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+
+    <!-- TODO 아이콘 -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <link href="css/common/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="css/common/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/common/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="home-btn d-none d-sm-block">
+    <a href="/" class="text-dark"><i class="mdi mdi-home-variant h2"></i></a>
+</div>
+<div class="account-pages my-5 pt-sm-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-5">
+                <div class="card overflow-hidden">
+                    <div class="bg-soft-primary">
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="text-primary p-4">
+                                    <h5 class="text-primary">InterCam회원가입</h5>
+                                    <p>새로운 계정을 만들어주세요.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div>
+                            <a href="/">
+                                <div class="avatar-md profile-user-wid mb-4">
+                                    <!-- TODO Main페이지로 돌아갈 이미지 -->
+                                    <span class="avatar-title rounded-circle bg-light"><img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="p-2">
+                            <form class="form-horizontal" action="/join" method="POST">
+                                <div class="form-group">
+                                    <label for="useremail">이메일</label>
+                                    <input type="email" class="form-control" name="username" id="useremail" placeholder="이메일을 입력해주세요">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="userpassword">비밀번호</label>
+                                    <input type="password" class="form-control" name="password" id="userpassword" placeholder="비밀번호를 입력해주세요">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">이름</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="이름을 입력해주세요">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="datetime">생년월일</label>
+                                    <input type="date" class ="form-control" name="birth" id="datetime" placeholder="예)2000-00-00">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phonenum">연락처</label>
+                                    <input type="text" class="form-control" name="phone" id="phonenum" placeholder="'-'없이 입력 예)010-1234-1234">
+                                </div>
+
+                                <!-- TODO 취업 분야 결정-->
+                                <!--                                        <div class="form-group">-->
+                                <!--                                                <p>취업분야</p>-->
+                                <!--                                                <label><input type="checkbox" name="job" value="it"> IT</label>-->
+                                <!--                                                <label><input type="checkbox" name="job" value="dmlfy"> 의료</label>-->
+                                <!--                                                <label><input type="checkbox" name="job" value="service">서비스 </label>-->
+                                <!--                                            <label><input type="checkbox" name="job" value="wjsanswlr">전문직 </label>-->
+                                <!--                                        </div>-->
+
+                                <div class="mt-4">
+                                    <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">회원가입</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 text-center">
+                    <div>
+                        <p>아이디가 이미 있으신가요?<a href="/login" class="font-weight-medium text-primary">로그인</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
