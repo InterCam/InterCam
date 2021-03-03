@@ -45,7 +45,7 @@ create table VideoList(
   list_id bigint(20) auto_increment NOT NULL,
   user_id bigint(20) NOT NULL,
   FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
-  avg_score float,
+  avgScore float,
   major VARCHAR(255) NOT NULL,
   education VARCHAR(255),
   experience VARCHAR(255),

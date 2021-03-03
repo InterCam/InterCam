@@ -2,10 +2,7 @@ package com.example.intercam.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -17,6 +14,7 @@ public class FAQ {
     private Long faq_id;
 
     @NotNull // 제목
+    @Column(columnDefinition = "varchar(20)")
     private String title;
 
     @NotNull // 내용

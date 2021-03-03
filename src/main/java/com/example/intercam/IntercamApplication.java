@@ -57,20 +57,20 @@ public class IntercamApplication implements CommandLineRunner {
 			noticeRepository.save(notice1);
 		}
 
-		for(int i =1;i<=3;i++){
-
-			Analyst analyst = Analyst.builder().name("분석가"+i)
-					.phone("010"+i+""+i)
-					.username("anlyst"+i)
-					.password(bCryptPasswordEncoder.encode("analyst"+i))
-					.contents("내용"+i)
-					.img("img"+i)
-					.birth("ddd")
-					.name("이름"+i)
-					.build();
-
-			analysisRepository.save(analyst);
-		}
+//		for(int i =1;i<=3;i++){
+//
+//			Analyst analyst = Analyst.builder().name("분석가"+i)
+//					.phone("010"+i+""+i)
+//					.username("anlyst"+i)
+//					.password(bCryptPasswordEncoder.encode("analyst"+i))
+//					.contents("내용"+i)
+//					.img("img"+i)
+//					.birth("ddd")
+//					.name("이름"+i)
+//					.build();
+//
+//			analysisRepository.save(analyst);
+//		}
 
 
 

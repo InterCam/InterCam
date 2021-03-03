@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 @Transactional
-public interface FAQ_repository extends JpaRepository<FAQ, Integer> {
+public interface FAQ_repository extends JpaRepository<FAQ, Long> {
     List<FAQ> findAll();
 }

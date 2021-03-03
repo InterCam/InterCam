@@ -19,7 +19,7 @@ public class Comment {
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name="list_id") // 유저 리스트
-    private VideoList list_Id;
+    private VideoList listId;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -30,6 +30,7 @@ public class Comment {
     private String contents;
 
     @NotNull
+    @Column(columnDefinition = "int(11) default 0")
     private int score;
 
     @Builder
@@ -43,6 +44,6 @@ public class Comment {
     }
 
     public void addVideoList(VideoList videoList) {
-        this.list_Id = videoList;
+        this.listId = videoList;
     }
 }

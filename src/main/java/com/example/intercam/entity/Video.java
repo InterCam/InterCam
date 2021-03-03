@@ -16,13 +16,16 @@ public class Video {
     private Long video_id;
 
     @OneToOne // 동영상 리스트
-    private VideoList list_id;
+    @JoinColumn(name = "list_id")
+    private VideoList listId;
 
     @NotNull // 제목
+    @Column(columnDefinition = "varchar(20)")
     private String title;
 
     //TODO AWS S3에서 동영상 URL 불러오는 로직 찾기
     @NotNull
+    @Column(columnDefinition = "varchar(20)")
     private String url;
 
     @Builder
@@ -32,6 +35,6 @@ public class Video {
     }
     // VideoList랑 양방향
     public void addVideoList(VideoList videoList){ // VideoList에서 addVideo로 할 것
-        this.list_id = videoList;
+        this.listId = videoList;
     }
 }

@@ -11,7 +11,7 @@ public class NoticeResponseDto {
     private int views;
 
     public NoticeResponseDto(Notice notice){
-        id = notice.getId();
+        id = notice.getNotice_id();
         title = notice.getTitle();
         content = notice.getContent();
         views = notice.getViews();

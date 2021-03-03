@@ -1,48 +1,51 @@
 package com.example.intercam.entity;
 
 import com.example.intercam.dto.UserJoinDto;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
+@Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    @GeneratedValue
+    private Long user_id; // Identify 적용 시 Analyst 상속이 Error 발생함. User 는 Analyst 랑 같은 Id를 써야하기 때문..
 
-    @OneToOne
+    @OneToOne @JoinColumn(name = "major_id")
     private Major major_id;
 
     @OneToMany(mappedBy = "user_id", fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE,
-                    CascadeType.PERSIST, CascadeType.REFRESH}) // 동영상 리스트
-    private List<VideoList> list_id;
+                    CascadeType.REFRESH}) // 동영상 리스트  // User - VideoList 저장 시 persist Error 발생함. persist 는 빼야함
+    private List<VideoList> listId;
+
+    @NotNull @Column(unique = true, columnDefinition = "varchar(10)")
+    private String username; // 이메일(아이디)
 
     @NotNull
-    private String username; // 이메일(아이디)
-    @NotNull
     private String password; // 비밀번호
-    @NotNull
+
+    @NotNull @Column(columnDefinition = "varchar(20)")
     private String phone; // 전화번호
-    @NotNull
+
+    @NotNull @Column(columnDefinition = "varchar(20)")
     private String birth; // 생일
-    @NotNull
+
+    @NotNull @Column(columnDefinition = "varchar(20)")
     private String name;
 
     @Column(columnDefinition = "varchar(32) default 'User'")
     @Enumerated(EnumType.STRING) // 권한
     private Auth auth;
+
 
     public User(UserJoinDto userJoinDto) {
         this.username = userJoinDto.getUsername();
@@ -65,10 +68,10 @@ public class User extends BaseTimeEntity {
     }
 
     public void addVideoList(VideoList videoList){
-        if(list_id == null){
-            list_id = new ArrayList<>();
+        if(listId == null){
+            listId = new ArrayList<>();
         }
-        list_id.add(videoList);
+        listId.add(videoList);
         videoList.addUser(this);
     }
 

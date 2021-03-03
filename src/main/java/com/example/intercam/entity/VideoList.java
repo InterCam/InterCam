@@ -1,8 +1,6 @@
 package com.example.intercam.entity;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,46 +9,39 @@ import java.util.List;
 
 @Getter
 @NoArgsConstructor
-@Entity
+@Entity @Setter @Builder
+@AllArgsConstructor
 public class VideoList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long list_id;
+    @Column(name="list_id")
+    private Long listId;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH,
-            CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+            CascadeType.MERGE, CascadeType.REFRESH}) // User - VideoList 저장 시 persist Error 발생함. persist 는 빼야함
     @JoinColumn(name="user_id") // 유저
     private User user_id;
 
-    private Float avg_score; // 평균점수
+    private Float avgScore; // 평균점수 Paging 시 '_'를 못가져와서 이름 변경
 
     @NotNull // 전공
     private String major;
 
-    private String education; // 학력
-
-    private String experience; // 경력
-
-    @NotNull
-    private Boolean status; // 상태값(사용, 미사용)
-
     //TODO 후순위. 로직 구현 필요
+    @Column(columnDefinition = "int(11) default 0")
     private int views; // 조회수
 
-    @OneToMany (fetch = FetchType.LAZY, cascade = {CascadeType.DETACH,
-            CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToMany (fetch = FetchType.LAZY)
     private List<Comment> commentList;
 
     @OneToOne // 동영상
+    @JoinColumn(name = "video_id")
     private Video video_id;
 
     @Builder
     public VideoList( @NotNull String major, String education, String experience,
                       @NotNull Boolean status, int views) {
         this.major = major;
-        this.education = education;
-        this.experience = experience;
-        this.status = status;
         this.views = views;
     }
 

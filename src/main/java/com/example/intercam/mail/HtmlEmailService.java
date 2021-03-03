@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import javax.mail.internet.MimeMessage;
 
-
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -20,11 +19,9 @@ public class HtmlEmailService{
     public void sendEmail(ChangeResponseDto changeResponseDto, String uuid){
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 
-
-
         try{
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, false, "UTF-8");
-//            "gitvideouser@gmail.com"
+
             mimeMessageHelper.setFrom("gitvideouser@gmail.com");
             mimeMessageHelper.setTo(changeResponseDto.getUsername());
 
