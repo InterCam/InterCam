@@ -26,15 +26,8 @@ public class MainController {
         return "index";
     }
 
-<<<<<<< HEAD
-    @GetMapping("/testing")
-    public String test(){
-        return  "/Sample/mylist";
-    }
-=======
 
     //테스트 할때 쓰기
     @GetMapping("/testing")
     public String text() { return "Sample/mylist";}
->>>>>>> 76f314dd1b595738702661ac9b43fcd700f98b7d
 }
