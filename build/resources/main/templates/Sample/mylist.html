@@ -4,40 +4,92 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-    <link rel="stylesheet" th:href="@{/css/common/list.css}" />
+    <link rel="stylesheet" th:href="@{/css/common/board.css}"/>
+    <div id="mainWrapper">
 
-    <div id="container">
+        <ul>
+            <!-- 게시판 제목 -->
+            <li>Interview My/리스트</li>
 
-<!--        my 인터뷰  리스트-->
-        <!---기본 메뉴--->
-        <ul class="board">
-            <h2>나의 인터뷰 리스트</h2>
-            <ul>
-                <li class="fl tc w70 title t_line">번호</li>
-                <li class="fl tc w500 title t_line">제목</li>
-                <li class="fl tc w120 title t_line">글쓴이</li>
-                <li class="fl tc w100 title t_line">작성일</li>
-                <li class="fl tc w100 title ">조회수</li>
-                <li class="fl tc w70 title t_line">관리</li>
-            </ul>
+            <!-- 게시판 목록  -->
+            <li>
+                <ul id="ulTable">
+                    <li>
+                        <ul>
+                            <li>No</li>
+                            <li>제목</li>
+                            <li>작성일</li>
+                            <li>조회수</li>
+                            <li>작성자</li>
+                            <li>관리</li>
+                        </ul>
+                    </li>
+                    <!-- 게시물이 출력될 영역 -->
+
+                    <li>
+                        <ul th:each="my:${myList}">
+                            <li th:text="${my.id}"></li>
+                            <li style="display: inherit">
+                                <a th:text="${my.title}" th:id="'my' + ${my.id}"></a>
+                                <p th:text="${my.contents}" style="display : none" th:id="'contents'+${my.id}"></p>
+                            </li>
+                            <li>2021-02-26</li>
+
+                            <li>조회수</li>
+
+                            <li>MEGAIT</li>
+
+                            <li>삭제</li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <!--             게시판 페이징 영역-->
+            <li>
+                <div id="divPaging">
+                    <div>◀</div>
+                    <div><b>1</b></div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>▶</div>
+                </div>
+            </li>
+
         </ul>
-        <!--- 리스트 --->
-        <ul class="board">
-            <ul th:each="mylist:${mylist}">
-                <li class="fl tc w70 list t_line lt_line" th:text="${mylist.id}"></li>
-
-
-                <li class="fl tc w500 list t_line lt_line">
-                    <a th:href="@{/mylist/contents/(id=${mylist.id})}" th:text="${mylist.title}" name="id" id="clickme"></a>
-                    <span class=" label label-danger">미평가</span></li>
-
-                <li class="fl tc w120 list t_line lt_line"th:text=""></li>
-                <li class="fl tc w100 list t_line lt_line"th:text=""></li>
-                <li class="fl tc w100 list  lt_line"th:text=""></li>
-                <li class="fl tc w70 list t_line lt_line" th:text=""></li>
-
-            </ul>
-        </ul>
+        <script>
+            $(document).ready(function(){
+                $("#my1").click(function(){
+                    $("#contents1").slideToggle();
+                    $("#contents2").slideUp();
+                    $("#contents3").slideUp()
+                    $("#contents4").slideUp()
+                    $("#contents5").slideUp()
+                    $("#contents6").slideUp()
+                    $("#contents7").slideUp()
+                    $("#contents8").slideUp()
+                    $("#contents9").slideUp()
+                    $("#contents10").slideUp()
+                    $("#contents11").slideUp()
+                });
+                $("#my2").click(function(){
+                    $("#contents1").slideUp();
+                    $("#contents2").slideToggle();
+                    $("#contents3").slideUp()
+                    $("#contents4").slideUp()
+                    $("#contents5").slideUp()
+                    $("#contents6").slideUp()
+                    $("#contents7").slideUp()
+                    $("#contents8").slideUp()
+                    $("#contents9").slideUp()
+                    $("#contents10").slideUp()
+                    $("#contents11").slideUp()
+                });
+            });
+        </script>
     </div>
 </div>
 </html>

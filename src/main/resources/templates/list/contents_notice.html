@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<table border="1">
+<!--    공지사항 답변-->
+    <thead>
+    <th>
+        FAQ
+    </th>
+    </thead>
+
+    <tbody th:each="notice:${notice}">
+
+    <tr>
+        <td>
+            <a th:text="${notice.title}"></a>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <a th:text="${notice.content}"></a>
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+</html>

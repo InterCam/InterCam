@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/common_layout">
+<div layout:fragment="content">
+    <link rel="stylesheet" th:href="@{/css/common/video.css}"/>
+<!--    순위/리스트-->
+
+    <div class="container">
+        <div th:each="videoList:${videoLists}">
+            <video width="500" height="300" poster="#" muted controls>
+                <source src="${videoList.video_id.url}" type="mov">
+            </video>
+            <li><a href="#" th:text="'제목:' +${videoList.video_id.title}"></a></li>
+            <li th:text= "'작성자:' + ${videoList.user_id.name}"></li>
+            <li th:text="'조회수:' + ${videoList.views}"></li>
+            <li th:text= "'평점: ' + ${videoList.avgScore}"></li>
+        </div>
+    </div>
+</div>
+</html>
+<!--    <div>-->
+<!--        <table border="1" bordercolor="black" th:each="videoList:${videoLists}">-->
+<!--                <tr>-->
+<!--                    <td><a href="#" th:text="${videoList.video_id.title}"></a></td>-->
+<!--                    <td th:text= "'작성자:' + ${videoList.user_id.name}"></td>-->
+<!--                    <td th:text="'조회수:' + ${videoList.views}"></td>-->
+<!--                    <td th:text="'평점: ' + ${videoList.avgScore}"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <video controls poster="">-->
+<!--                        <source src="${videoList.video_id.url}" type="mov">-->
+<!--                    </video>-->
+
+<!--                </tr>-->
+<!--        </table>-->
+<!--    </div>-->

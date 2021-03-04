@@ -35,7 +35,7 @@
                         <!--TODO 모든 리스트 링크-->
                         <button class="dropbtn">All인터뷰</button>
                         <div class="dropdown-content">
-                            <a href="#">리스트</a>
+                            <a th:href="@{/list/videoList}">리스트</a>
                         </div>
                     </li>
 
@@ -43,7 +43,7 @@
                         <!--TODO 순위 리스트 링크-->
                         <button class="dropbtn">순위</button>
                         <div class="dropdown-content">
-                            <a href="#">리스트</a>
+                            <a th:href="@{/list/videoRankList}">리스트</a>
                         </div>
                     </li>
 
@@ -51,7 +51,7 @@
                         <!--TODO 소개 리스트 링크-->
                         <button class="dropbtn">소개</button>
                         <div class="dropdown-content">
-                            <a href="/analyst">평가원 소개</a>
+                            <a th:href="@{/analyst}">평가원 소개</a>
                             <a href="#">사용방법 (다운로드)</a>
                         </div>
                     </li>
@@ -59,10 +59,10 @@
                     <li class="dropdown">
                         <button class="dropbtn">고객지원</button>
                         <div class="dropdown-content">
-                            <a href="/notice">공지사항</a>
-                            <a href="/faq">FAQ</a>
+                            <a th:href="@{/notice}">공지사항</a>
+                            <a th:href="@{/faq}">FAQ</a>
                             <!--TODO 질문 보내기 링크 & 로직 구현-->
-                            <a href="#">질문보내기</a>
+                            <a th:href="@{/admin/notice/write}">질문보내기</a>
                         </div>
                     </li>
 
@@ -84,7 +84,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav navbar-nav navbar-right th:class="th:class="${activeTab == 'mypage'}? 'active':null" sec:authorize="isAuthenticated()">
                         <a class="nav-link" th:href="@{/mypage}" href="/mypage" sec:authentication="name" ></a>
-                    <li><a href="/logout" onclick="javascript:document.myForm.submit()"><span class="glyphicon glyphicon-log-in" sec:authorize="isAuthenticated()">Logout</span></a></li>
+                    <li><a th:href="@{/logout}" onclick="javascript:document.myForm.submit()"><span class="glyphicon glyphicon-log-in" sec:authorize="isAuthenticated()">Logout</span></a></li>
                     </li>
                 </ul>
             </div>
