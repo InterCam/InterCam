@@ -21,12 +21,12 @@ public class AnalystController {
     public String addAnalyst(Model model){
         List<AnalystResponseDto> analysts = analystService.findAll();
         model.addAttribute("analysts", analysts);
-        return "Sample/analyst";
+        return "list/analyst";
     }
 
     @GetMapping("/admin/analyst")
     public String save(){
-        return "Sample/addAnalyst";
+        return "Login/AddAnalyst";
     }
 
     @PostMapping("/admin/analyst")

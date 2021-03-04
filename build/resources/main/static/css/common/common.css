@@ -69,6 +69,10 @@ footer { position: fixed;
     text-align:center;
 }
 
+ul, li {
+    list-style: none;
+    text-align: center;
+}
 
 .carousel-inner img {
     width: 100%; /* Set width to 100% */
@@ -85,3 +89,10 @@ footer { position: fixed;
 
 h2 { text-align: center;}
 
+element.style {
+    width: 500px;
+    height: 100px;
+    border-style: solid;
+    border-color: black;
+    background-color: rgb(255, 255, 255);
+}

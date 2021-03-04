@@ -4,29 +4,56 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-    <link rel="stylesheet" th:href="@{/css/common/list.css}" />
+    <link rel="stylesheet" th:href="@{/css/common/board.css}"/>
+    <div id="mainWrapper">
 
-    <style>
-        #container a{
-            display:block;
-        }
-    </style>
+        <ul>
+            <!-- 게시판 제목 -->
+            <li>자주하는 질문(FAQ)</li>
 
-    <div id="container">
-        <ul class="board">
-            <h2>자주하는 질문(FAQ)</h2>
+            <!-- 게시판 목록  -->
+            <li>
+                <ul id="ulTable">
+                    <li>
+                        <ul>
+                            <li>No</li>
+                            <li>제목</li>
+                            <li>작성일</li>
+                            <li>작성자</li>
+                        </ul>
+                    </li>
+                    <!-- 게시물이 출력될 영역 -->
+
+                    <li>
+                        <ul th:each="faq:${faqList}">
+                            <li th:text="${faq.id}"></li>
+                            <li style="display: inherit">
+                                <a th:text="${faq.title}" th:id="'faq' + ${faq.id}"></a>
+                                <p th:text="${faq.contents}" style="display : none" th:id="'contents'+${faq.id}"></p>
+                            </li>
+                            <li>2021-02-26</li>
+
+                            <li>MEGAIT</li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+<!--             게시판 페이징 영역-->
+            <li>
+                <div id="divPaging">
+                    <div>◀</div>
+                    <div><b>1</b></div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>▶</div>
+                </div>
+            </li>
+
         </ul>
-
-        <!--TODO 클릭하면 아래로 내용이 바로 나오도록(해당 링크로 이동하지 않게) 사용-->
-        <ul class="board">
-            <ul th:each="faq:${faqList}">
-                <li class="w500 fl tc  list t_line lt_line" style="display: inherit">
-                    <a th:text="${faq.title}" th:id="'faq' + ${faq.id}"></a>
-                    <p th:text="${faq.contents}" style="display : none" th:id="'contents'+${faq.id}"></p>
-                </li>
-            </ul>
-        </ul>
-
         <script>
             $(document).ready(function(){
                 $("#faq1").click(function(){
@@ -59,5 +86,4 @@
         </script>
     </div>
 </div>
-
 </html>

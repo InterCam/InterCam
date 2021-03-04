@@ -38,7 +38,7 @@ public class NoticeController {
 
     @GetMapping("/admin/notice/write")
     public String notice(){
-        return "Sample/write";
+        return "list/write";
     }
 
     @PostMapping("/admin/notice/write")

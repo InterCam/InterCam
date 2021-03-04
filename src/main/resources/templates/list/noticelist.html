@@ -4,33 +4,90 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-    <link rel="stylesheet" href="css/common/list.css" />
+    <link rel="stylesheet" th:href="@{/css/common/board.css}"/>
+    <div id="mainWrapper">
 
-    <style>
-        #container a{
-            display:block;
-        }
-    </style>
+<!--공지사항-->
 
-    <div id="container">
+    <ul>
+        <!-- 게시판 제목 -->
+        <li>공지사항</li>
 
-        <ul class="board">
-            <h2>공지사항</h2>
-            <ul>
-                <li class="fl tc w70 title t_line">번호</li>
-                <li class="fl tc w500 title t_line">제목</li>
-            </ul>
-        </ul>
+        <!-- 게시판 목록  -->
+        <li>
+            <ul id="ulTable">
+                <li>
+                    <ul>
+                        <li>No</li>
+                        <li>제목</li>
+                        <li>작성일</li>
+                        <li>작성자</li>
+                    </ul>
+                </li>
+                <!-- 게시물이 출력될 영역 -->
 
-        <ul class="board">
-            <ul th:each="notice:${noticeList}">
-                <li class="fl tc w70 list t_line lt_line" th:text="${notice.id}"></li>
-                <li class="fl tc w500 list t_line lt_line">
-                    <a th:href="@{/notice/contents/(id=${notice.id})}" th:text="${notice.title}" name="id" id="clickme"></a>
+                <li>
+                    <ul th:each="notice:${noticeList}">
+                        <li th:text="${notice.id}"></li>
+                        <li style="display: inherit">
+                            <a th:text="${notice.title}" th:id="'notice' + ${notice.id}"></a>
+                            <p th:text="${notice.content}" style="display : none" th:id="'content'+${notice.id}"></p>
+                        </li>
+                        <li>2021-02-26</li>
+
+                        <li>MEGAIT</li>
+
+                    </ul>
                 </li>
             </ul>
-        </ul>
-    </div>
+        </li>
 
+        <!--             게시판 페이징 영역-->
+        <li>
+            <div id="divPaging">
+                <div>◀</div>
+                <div><b>1</b></div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>▶</div>
+            </div>
+        </li>
+
+    </ul>
+
+
+        <script>
+            $(document).ready(function(){
+                $("#notice100").click(function(){
+                    $("#content100").slideToggle();
+                    $("#content99").slideUp();
+                    $("#content3").slideUp()
+                    $("#content4").slideUp()
+                    $("#content5").slideUp()
+                    $("#content6").slideUp()
+                    $("#content7").slideUp()
+                    $("#content8").slideUp()
+                    $("#content9").slideUp()
+                    $("#content10").slideUp()
+                    $("#content11").slideUp()
+                });
+                $("#notice99").click(function(){
+                    $("#content100").slideUp();
+                    $("#content99").slideToggle();
+                    $("#content3").slideUp()
+                    $("#content4").slideUp()
+                    $("#content5").slideUp()
+                    $("#content6").slideUp()
+                    $("#content7").slideUp()
+                    $("#content8").slideUp()
+                    $("#content9").slideUp()
+                    $("#content10").slideUp()
+                    $("#content11").slideUp()
+                });
+            });
+        </script>
+    </div>
 </div>
 </html>
