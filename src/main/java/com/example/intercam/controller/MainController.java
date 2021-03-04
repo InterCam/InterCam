@@ -23,4 +23,9 @@ public class MainController {
     public String index(){
         return "index";
     }
+
+    @GetMapping("/testing")
+    public String test(){
+        return  "/Sample/mylist";
+    }
 }

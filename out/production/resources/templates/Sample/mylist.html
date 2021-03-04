@@ -22,18 +22,18 @@
         </ul>
         <!--- 리스트 --->
         <ul class="board">
-            <ul th:each="mylist:${mylist}">
-                <li class="fl tc w70 list t_line lt_line" th:text="${mylist.id}"></li>
+            <ul>
+                <li class="fl tc w70 list t_line lt_line" text="1"></li>
 
 
                 <li class="fl tc w500 list t_line lt_line">
-                    <a th:href="@{/mylist/contents/(id=${mylist.id})}" th:text="${mylist.title}" name="id" id="clickme"></a>
+                    <a text="ddd" name="id" id="clickme"></a>
                     <span class=" label label-danger">미평가</span></li>
 
-                <li class="fl tc w120 list t_line lt_line"th:text=""></li>
-                <li class="fl tc w100 list t_line lt_line"th:text=""></li>
-                <li class="fl tc w100 list  lt_line"th:text=""></li>
-                <li class="fl tc w70 list t_line lt_line" th:text=""></li>
+                <li class="fl tc w120 list t_line lt_line" text="ddd"></li>
+                <li class="fl tc w100 list t_line lt_line" text="ddd"></li>
+                <li class="fl tc w100 list  lt_line" text="ddd"></li>
+                <li class="fl tc w70 list t_line lt_line" text=""></li>
 
             </ul>
         </ul>
