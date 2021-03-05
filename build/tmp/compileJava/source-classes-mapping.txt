@@ -1,86 +1,85 @@
-com/example/intercam/dto/NoticeResponseDto.java
- com.example.intercam.dto.NoticeResponseDto
-com/example/intercam/Repository/VideoRepository.java
- com.example.intercam.Repository.VideoRepository
-com/example/intercam/IntercamApplication.java
- com.example.intercam.IntercamApplication
+com/example/intercam/controller/NoticeController.java
+ com.example.intercam.controller.NoticeController
+com/example/intercam/controller/LoginController.java
+ com.example.intercam.controller.LoginController
+com/example/intercam/service/LoginService.java
+ com.example.intercam.service.LoginService
 com/example/intercam/entity/BaseTimeEntity.java
  com.example.intercam.entity.BaseTimeEntity
 com/example/intercam/service/FAQService.java
  com.example.intercam.service.FAQService
-com/example/intercam/service/NoticeService.java
- com.example.intercam.service.NoticeService
+com/example/intercam/entity/User.java
+ com.example.intercam.entity.User
 com/example/intercam/service/FileService.java
  com.example.intercam.service.FileService
-com/example/intercam/dto/FilesSaveRequestDto.java
- com.example.intercam.dto.FilesSaveRequestDto
- com.example.intercam.dto.FilesSaveRequestDto$FilesSaveRequestDtoBuilder
-com/example/intercam/service/AnalystService.java
- com.example.intercam.service.AnalystService
-com/example/intercam/entity/PersistentLogins.java
- com.example.intercam.entity.PersistentLogins
-com/example/intercam/Repository/VideoListRepository.java
- com.example.intercam.Repository.VideoListRepository
-com/example/intercam/dto/FAQResponseDto.java
- com.example.intercam.dto.FAQResponseDto
-com/example/intercam/Repository/CommentRepository.java
- com.example.intercam.Repository.CommentRepository
-com/example/intercam/controller/FAQController.java
- com.example.intercam.controller.FAQController
 com/example/intercam/dto/NoticeRequestDto.java
  com.example.intercam.dto.NoticeRequestDto
  com.example.intercam.dto.NoticeRequestDto$NoticeRequestDtoBuilder
-com/example/intercam/mail/HtmlEmailService.java
- com.example.intercam.mail.HtmlEmailService
-com/example/intercam/Sample/Files_replace.java
- com.example.intercam.Sample.Files_replace
- com.example.intercam.Sample.Files_replace$Files_replaceBuilder
+com/example/intercam/dto/UserResponseDto.java
+ com.example.intercam.dto.UserResponseDto
+com/example/intercam/entity/Analyst.java
+ com.example.intercam.entity.Analyst
+ com.example.intercam.entity.Analyst$AnalystBuilder
+com/example/intercam/Repository/VideoListRepository.java
+ com.example.intercam.Repository.VideoListRepository
+com/example/intercam/entity/Comment.java
+ com.example.intercam.entity.Comment
+ com.example.intercam.entity.Comment$CommentBuilder
+com/example/intercam/Repository/CommentRepository.java
+ com.example.intercam.Repository.CommentRepository
+com/example/intercam/entity/Video.java
+ com.example.intercam.entity.Video
+ com.example.intercam.entity.Video$VideoBuilder
+com/example/intercam/dto/AnalystRequestDto.java
+ com.example.intercam.dto.AnalystRequestDto
+ com.example.intercam.dto.AnalystRequestDto$AnalystRequestDtoBuilder
+com/example/intercam/service/PrincipalService.java
+ com.example.intercam.service.PrincipalService
+com/example/intercam/dto/NoticeResponseDto.java
+ com.example.intercam.dto.NoticeResponseDto
+com/example/intercam/IntercamApplication.java
+ com.example.intercam.IntercamApplication
 com/example/intercam/entity/FAQ.java
  com.example.intercam.entity.FAQ
  com.example.intercam.entity.FAQ$FAQBuilder
 com/example/intercam/controller/VideoController.java
  com.example.intercam.controller.VideoController
-com/example/intercam/Repository/NoticeRepository.java
- com.example.intercam.Repository.NoticeRepository
+com/example/intercam/Repository/UserRepository.java
+ com.example.intercam.Repository.UserRepository
 com/example/intercam/Repository/FAQ_repository.java
  com.example.intercam.Repository.FAQ_repository
 com/example/intercam/dto/ChangeResponseDto.java
  com.example.intercam.dto.ChangeResponseDto
  com.example.intercam.dto.ChangeResponseDto$ChangeResponseDtoBuilder
-com/example/intercam/Sample/FileRepository_replace.java
- com.example.intercam.Sample.FileRepository_replace
+com/example/intercam/entity/Notice.java
+ com.example.intercam.entity.Notice
+ com.example.intercam.entity.Notice$NoticeBuilder
 com/example/intercam/entity/Major.java
  com.example.intercam.entity.Major
  com.example.intercam.entity.Major$MajorBuilder
 com/example/intercam/Repository/AnalysisRepository.java
  com.example.intercam.Repository.AnalysisRepository
-com/example/intercam/entity/Notice.java
- com.example.intercam.entity.Notice
- com.example.intercam.entity.Notice$NoticeBuilder
+com/example/intercam/service/NoticeService.java
+ com.example.intercam.service.NoticeService
 com/example/intercam/entity/Auth.java
  com.example.intercam.entity.Auth
-com/example/intercam/controller/LoginController.java
- com.example.intercam.controller.LoginController
-com/example/intercam/service/LoginService.java
- com.example.intercam.service.LoginService
 com/example/intercam/entity/VideoList.java
  com.example.intercam.entity.VideoList
  com.example.intercam.entity.VideoList$VideoListBuilder
-com/example/intercam/controller/AnalystController.java
- com.example.intercam.controller.AnalystController
-com/example/intercam/entity/User.java
- com.example.intercam.entity.User
-com/example/intercam/dto/UserResponseDto.java
- com.example.intercam.dto.UserResponseDto
+com/example/intercam/Repository/VideoRepository.java
+ com.example.intercam.Repository.VideoRepository
+com/example/intercam/mail/HtmlEmailService.java
+ com.example.intercam.mail.HtmlEmailService
+com/example/intercam/Repository/NoticeRepository.java
+ com.example.intercam.Repository.NoticeRepository
+com/example/intercam/Sample/FileRepository_replace.java
+ com.example.intercam.Sample.FileRepository_replace
 com/example/intercam/entity/UserDetail_r.java
  com.example.intercam.entity.UserDetail_r
  com.example.intercam.entity.UserDetail_r$1
-com/example/intercam/entity/Analyst.java
- com.example.intercam.entity.Analyst
- com.example.intercam.entity.Analyst$AnalystBuilder
-com/example/intercam/entity/Comment.java
- com.example.intercam.entity.Comment
- com.example.intercam.entity.Comment$CommentBuilder
+com/example/intercam/dto/FilesSaveRequestDto.java
+ com.example.intercam.dto.FilesSaveRequestDto
+ com.example.intercam.dto.FilesSaveRequestDto$FilesSaveRequestDtoBuilder
 com/example/intercam/dto/AnalystResponseDto.java
  com.example.intercam.dto.AnalystResponseDto
 com/example/intercam/controller/VideoListController.java
@@ -90,19 +89,20 @@ com/example/intercam/service/VideoListService.java
 com/example/intercam/dto/UserJoinDto.java
  com.example.intercam.dto.UserJoinDto
  com.example.intercam.dto.UserJoinDto$UserJoinDtoBuilder
-com/example/intercam/entity/Video.java
- com.example.intercam.entity.Video
- com.example.intercam.entity.Video$VideoBuilder
-com/example/intercam/dto/AnalystRequestDto.java
- com.example.intercam.dto.AnalystRequestDto
- com.example.intercam.dto.AnalystRequestDto$AnalystRequestDtoBuilder
-com/example/intercam/service/PrincipalService.java
- com.example.intercam.service.PrincipalService
+com/example/intercam/controller/FAQController.java
+ com.example.intercam.controller.FAQController
 com/example/intercam/config/SecurityConfig.java
  com.example.intercam.config.SecurityConfig
-com/example/intercam/Repository/UserRepository.java
- com.example.intercam.Repository.UserRepository
-com/example/intercam/controller/NoticeController.java
- com.example.intercam.controller.NoticeController
+com/example/intercam/dto/FAQResponseDto.java
+ com.example.intercam.dto.FAQResponseDto
+com/example/intercam/entity/PersistentLogins.java
+ com.example.intercam.entity.PersistentLogins
+com/example/intercam/Sample/Files_replace.java
+ com.example.intercam.Sample.Files_replace
+ com.example.intercam.Sample.Files_replace$Files_replaceBuilder
 com/example/intercam/controller/MainController.java
  com.example.intercam.controller.MainController
+com/example/intercam/service/AnalystService.java
+ com.example.intercam.service.AnalystService
+com/example/intercam/controller/AnalystController.java
+ com.example.intercam.controller.AnalystController

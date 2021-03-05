@@ -23,7 +23,7 @@ public class VideoListController {
 
         model.addAttribute("videoLists", videoLists);
         model.addAttribute("pageList", pageList);
-        return "/Sample/videoList_idDESC";
+        return "/alllist/videoList_idDESC";
     }
 
     @GetMapping("/list/videoRankList")
@@ -32,7 +32,7 @@ public class VideoListController {
 
         model.addAttribute("videoLists", videoLists);
 
-        return "/Sample/videoRankList";
+        return "/alllist/videoRankList";
     }
 
 

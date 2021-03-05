@@ -19,6 +19,6 @@ public class FAQController {
     public String faq(Model model){
         List<FAQResponseDto> faqList = faqService.get_faq();
         model.addAttribute("faqList", faqList);
-        return "list/faqlist";
+        return "customer/faqlist";
     }
 }
