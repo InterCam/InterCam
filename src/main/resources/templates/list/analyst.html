@@ -9,7 +9,7 @@
 
     <div class="card">
         <ul th:each="analyst:${analysts}">
-        <img th:text="${analyst.img}" alt="analyst" >
+        <img src="${analyst.img}" alt="analyst" >
         <div class="container">
             <h4 th:text="${analyst.name}"><b></b></h4>
             <p th:text="${analyst.contents}"></p>

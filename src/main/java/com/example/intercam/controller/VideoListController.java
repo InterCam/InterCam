@@ -24,7 +24,6 @@ public class VideoListController {
         model.addAttribute("videoLists", videoLists);
         model.addAttribute("pageList", pageList);
         return "/Sample/videoList_idDESC";
-//        return "/Sample/video";
     }
 
     @GetMapping("/list/videoRankList")

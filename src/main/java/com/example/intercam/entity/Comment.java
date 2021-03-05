@@ -30,6 +30,7 @@ public class Comment {
     private String contents;
 
     @NotNull
+    @Column(columnDefinition = "int(11) default 0")
     private int score;
 
     @Builder

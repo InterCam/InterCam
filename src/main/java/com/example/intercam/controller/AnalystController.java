@@ -24,11 +24,13 @@ public class AnalystController {
         return "list/analyst";
     }
 
+    //TODO
     @GetMapping("/admin/analyst")
     public String save(){
         return "Login/AddAnalyst";
     }
 
+    //TODO img파일 저장 & 경로 저장
     @PostMapping("/admin/analyst")
     public String saveAnalyst(AnalystRequestDto analystRequestDto){
 

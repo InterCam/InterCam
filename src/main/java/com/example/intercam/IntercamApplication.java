@@ -1,9 +1,7 @@
 package com.example.intercam;
 
-import com.example.intercam.Repository.AnalysisRepository;
 import com.example.intercam.Repository.FAQ_repository;
 import com.example.intercam.Repository.NoticeRepository;
-import com.example.intercam.entity.Analyst;
 import com.example.intercam.entity.FAQ;
 import com.example.intercam.entity.Notice;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +19,6 @@ public class IntercamApplication implements CommandLineRunner {
 
 	@Autowired
 	private FAQ_repository faq_repository;
-
-	@Autowired
-	private AnalysisRepository analysisRepository;
 
 	@Autowired
 	private NoticeRepository noticeRepository;
@@ -56,22 +51,6 @@ public class IntercamApplication implements CommandLineRunner {
 
 			noticeRepository.save(notice1);
 		}
-
-		for(int i =1;i<=3;i++){
-
-			Analyst analyst = Analyst.builder().name("분석가"+i)
-					.phone("010"+i+""+i)
-					.username("anlyst"+i)
-					.password(bCryptPasswordEncoder.encode("analyst"+i))
-					.contents("내용"+i)
-					.img("img"+i)
-					.birth("ddd")
-					.name("이름"+i)
-					.build();
-
-			analysisRepository.save(analyst);
-		}
-
 
 
 	}

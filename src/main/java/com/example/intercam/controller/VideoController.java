@@ -30,6 +30,4 @@ public class VideoController {
 
         return "redirect:/";
     }
-
-
 }

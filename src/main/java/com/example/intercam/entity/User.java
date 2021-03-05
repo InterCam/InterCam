@@ -14,14 +14,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private Long userId;
 
-    @OneToOne
+    @OneToOne @JoinColumn(name = "major_id")
     private Major major_id;
 
     @OneToMany(mappedBy = "user_id", fetch = FetchType.LAZY,
@@ -29,15 +29,15 @@ public class User extends BaseTimeEntity {
                     CascadeType.PERSIST, CascadeType.REFRESH}) // 동영상 리스트
     private List<VideoList> list_id;
 
-    @NotNull
+    @NotNull @Column(unique = true, columnDefinition = "varchar(100)")
     private String username; // 이메일(아이디)
     @NotNull
     private String password; // 비밀번호
-    @NotNull
+    @NotNull @Column(columnDefinition = "varchar(20)")
     private String phone; // 전화번호
-    @NotNull
+    @NotNull @Column(columnDefinition = "varchar(20)")
     private String birth; // 생일
-    @NotNull
+    @NotNull @Column(columnDefinition = "varchar(20)")
     private String name;
 
     @Column(columnDefinition = "varchar(32) default 'User'")
