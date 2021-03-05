@@ -20,7 +20,6 @@ public class Video {
     private VideoList listid;
 
     @NotNull // 제목
-    @Column(columnDefinition = "varchar(20)")
     private String title;
 
     //TODO AWS S3에서 동영상 URL 불러오는 로직 찾기

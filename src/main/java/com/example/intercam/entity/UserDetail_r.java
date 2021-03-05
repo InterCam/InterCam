@@ -21,6 +21,10 @@ public class UserDetail_r implements UserDetails {
         return userResponseDto;
     }
 
+    public User getUser() {
+        return user;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collection = new ArrayList<>();

@@ -14,7 +14,6 @@ public class FAQ {
     private Long faq_id;
 
     @NotNull // 제목
-    @Column(columnDefinition = "varchar(20)")
     private String title;
 
     @NotNull // 내용
