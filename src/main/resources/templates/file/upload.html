@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>파일 업로드 </title>
+</head>
+<body>
+<h1>파일 업로드</h1> <hr>
+
+<form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+    제목 : <input type="text" name="title"> <br>
+    파일 : <input type="file" name="file"> <br>
+    <button>등록하기</button>
+
+</form>
+
+<div th:each="upload:${uploadList}">
+    <div style="margin-bottom:30px">
+        <p th:inline="text"> 제목 : [[$upload.title]]</p>
+        <img th:src="${upload.imgFullPath}" style="width:100px; height:50px;">
+    </div>
+    <form th:action="@{upload}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" th:value="${upload.id}">
+        <input type="hidden" name="id" th:value="${upload.title}">
+        <input type="hidden" name="id" th:value="${upload.filePath}">
+    </form>
+
+
+
+</div>
+
+</body>
+</html>

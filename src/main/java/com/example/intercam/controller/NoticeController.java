@@ -26,19 +26,19 @@ public class NoticeController {
 
         model.addAttribute("noticeList", list);
 
-        return "list/noticelist";
+        return "customer/noticelist";
     }
 
     @GetMapping("/notice/contents")
     public String notice(Long id, Model model){
         NoticeResponseDto notice = noticeService.getNotice(id);
         model.addAttribute("notice", notice);
-        return "Sample/contents_notice";
+        return "customer/contents_notice";
     }
 
     @GetMapping("/admin/notice/write")
     public String notice(){
-        return "list/write";
+        return "customer/write";
     }
 
     @PostMapping("/admin/notice/write")
