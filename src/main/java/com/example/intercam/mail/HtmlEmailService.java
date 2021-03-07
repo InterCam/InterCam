@@ -1,6 +1,7 @@
 package com.example.intercam.mail;
 
 import com.example.intercam.dto.ChangeResponseDto;
+import com.example.intercam.entity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -20,8 +21,6 @@ public class HtmlEmailService{
     public void sendEmail(ChangeResponseDto changeResponseDto, String uuid){
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 
-
-
         try{
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, false, "UTF-8");
 //            "gitvideouser@gmail.com"
@@ -39,6 +38,26 @@ public class HtmlEmailService{
         }
     }
 
+    public void question(User user, String title, String contents){
+
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+
+        try{
+            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, false, "UTF-8");
+
+            mimeMessageHelper.setFrom("gitvideouser@gmail.com");
+            mimeMessageHelper.setTo(user.getUsername());
+
+            mimeMessageHelper.setSubject(title);
+
+            mimeMessageHelper.setText(contents);
+
+            javaMailSender.send(mimeMessage);
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 
 
 

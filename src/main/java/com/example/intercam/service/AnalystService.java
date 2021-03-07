@@ -1,6 +1,7 @@
 package com.example.intercam.service;
 
 import com.example.intercam.Repository.AnalysisRepository;
+import com.example.intercam.Repository.UserRepository;
 import com.example.intercam.dto.AnalystRequestDto;
 import com.example.intercam.dto.AnalystResponseDto;
 import com.example.intercam.entity.Analyst;
@@ -18,9 +19,15 @@ public class AnalystService {
 
     private final AnalysisRepository analysisRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final UserRepository userRepository;
 
     @Transactional
     public void save(AnalystRequestDto analystRequestDto){
+
+        if(userRepository.findByUsername(analystRequestDto.getUsername())!=null){
+            throw new IllegalArgumentException("존재하는 아이디");
+        }
+
         analystRequestDto.setPassword(bCryptPasswordEncoder.encode(analystRequestDto.getPassword()));
 
         analysisRepository.save(analystRequestDto.toEntity());

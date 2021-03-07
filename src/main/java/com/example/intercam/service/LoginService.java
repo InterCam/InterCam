@@ -1,5 +1,6 @@
 package com.example.intercam.service;
 
+import com.example.intercam.Repository.AnalysisRepository;
 import com.example.intercam.dto.ChangeResponseDto;
 import com.example.intercam.dto.UserJoinDto;
 import com.example.intercam.entity.User;
@@ -17,9 +18,15 @@ public class LoginService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final AnalysisRepository analysisRepository;
 
     @Transactional
     public void join(UserJoinDto userJoinDto){
+
+        if(analysisRepository.findByUsername(userJoinDto.getUsername())!=null){
+            throw new IllegalArgumentException("중복되는 아이디!");
+        }
+
 
         userJoinDto.setPassword(bCryptPasswordEncoder.encode(userJoinDto.getPassword()));
 
@@ -34,7 +41,7 @@ public class LoginService {
 
         User user = userRepository.findByUsername(username);
 
-        //user.changePassword(bCryptPasswordEncoder.encode(password));
+        user.changePassword(bCryptPasswordEncoder.encode(password));
 
     }
 
