@@ -34,13 +34,9 @@ dependencies {
 	compile "org.springframework:spring-context-support"
 	implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect'
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
-	// https://mvnrepository.com/artifact/com.sun.mail/javax.mail
 	implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
-//	compile "com.sun.mail:javax.mail"
-
-
-
-
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-aws', version: '2.2.1.RELEASE', ext: 'pom'
+	implementation group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.956'
 }
 
 

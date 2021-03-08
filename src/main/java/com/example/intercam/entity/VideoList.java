@@ -19,8 +19,8 @@ public class VideoList {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.REFRESH}) // User - VideoList 저장 시 persist Error 발생함. persist 는 빼야함
-    @JoinColumn(name="user_id") // 유저
-    private User user_id;
+    @JoinColumn(name="userId") // 유저
+    private User userId;
 
     private Float avgScore; // 평균점수 Paging 시 '_'를 못가져와서 이름 변경
 
@@ -60,6 +60,6 @@ public class VideoList {
 
     // FINISH
     public void addUser(User user){
-        this.user_id = user;
+        this.userId = user;
     }
 }

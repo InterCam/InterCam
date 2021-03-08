@@ -62,7 +62,7 @@ public class VideoListService {
 
         vl.setListId(videoList.getListId());
         vl.setCommentList(videoList.getCommentList());
-        vl.setUser_id(videoList.getUser_id());
+        vl.setUserId(videoList.getUserId());
         vl.setVideo_id(videoList.getVideo_id());
         vl.setAvgScore(videoList.getAvgScore());
         vl.setViews(videoList.getViews());
