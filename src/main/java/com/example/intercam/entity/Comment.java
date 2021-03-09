@@ -3,11 +3,13 @@ package com.example.intercam.entity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 public class Comment extends BaseTimeEntity {

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout/common_layout">
+
+<div layout:fragment="content">
+    <link rel="stylesheet" th:href="@{/css/common/list.css}" />
+
+    <center>
+        <video autoplay controls loop>
+            <source src="${videoList.video_id.url}" type="mov">
+        </video>
+
+        <hr class="col-12 my-4">
+
+        <table>
+            <tr>
+                <td><span type="text" th:text="'제목 :' + ${videoList.video_id.title}" aria-disabled="true"></span></td>
+                <td><input type="text" th:value="'평점 :' + ${videoList.avgScore}" disabled></td>
+            </tr>
+            <tr>
+                <td><input type="text" th:value="'주요분야 :' + ${videoList.major}" disabled></td>
+            </tr>
+        </table>
+
+    </center>
+
+
+    <div th:if="error == wrong.input">
+        <span>로그인이 필요한 기능입니다.</span>
+    </div>
+
+    <div th:if="error == wrong.auth">
+        <span>권한이 없습니다.</span>
+    </div>
+
+    <input th:if="${error} == null" placeholder="점수" name="score" type="number" min="1" max="10">
+
+    <textarea th:if="${error} == null" placeholder="댓글을 입력하세요." style="width:80%;height:150%;border:1" name="comment"></textarea>
+    <button th:if="${error} == null" name="addComment">등록</button>
+    <hr class="col-12 my-4">
+
+    <table th:each="comment:${videoList.commentList}">
+            <tr>
+                <th>
+                    <img src="https://img.icons8.com/material/18/000000/popular-man.png"/>
+                    <input type="text" readonly th:value="${comment.analyst_id.name} + '님'" disabled>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="text" readonly th:value="${comment.score} + '점'" disabled>
+
+                    <td align="left"><button name="delete" th:id="${comment.comment_id}") sec:authorize="isAuthenticated()">X</button></td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="text" readonly th:value="${comment.contents}" style="width:80%;height:150%;border:1" disabled>
+                </td>
+            </tr>
+    </table>
+
+
+    <script>
+        function getId(id){
+            id = id.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + id + "=([^&#]*)"),
+            results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+
+        $('[name=addComment]').click(function(){
+            var id = getId('id');
+            var insertData = $('[name=comment]').val();
+            var score = $('[name=score]').val();
+
+            if(insertData == "" || score == ""){
+                alert("내용 및 점수를 입력하세요.");
+                return;
+            }
+            addComment(id, insertData, score);
+        })
+
+        function addComment(id, insertData, score){
+            $.ajax({
+                 url: '/list/detail',
+                 type: 'post',
+                 data: {'id': id, 'comment':insertData, 'score':score},
+                 success: function(result){
+                        alert("댓글이 등록되었습니다.");
+                        location.reload();
+                 }
+            });
+        }
+
+        $('[name=delete]').click(function(){
+            var comment_id = $(this).attr("id");
+            commentDelete(comment_id);
+        })
+
+        function commentDelete(comment_id){
+           var id = getId('id');
+
+            $.ajax({
+                url: '/list/commentDelete',
+                type: 'post',
+                data: {'comment_id':comment_id, 'id':id},
+                 success: function(result){
+                        alert("댓글이 삭제되었습니다.");
+                        location.reload();
+                 }
+            });
+        }
+    </script>
+
+</div>
+</html>

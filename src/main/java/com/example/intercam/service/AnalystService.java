@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -43,5 +44,14 @@ public class AnalystService {
         }
 
         return result;
+    }
+
+    public Analyst findAna(Long id){
+        Optional<Analyst> analyst = analysisRepository.findById(id);
+
+        if(analyst == null){
+            return null;
+        }
+        return analyst.get();
     }
 }

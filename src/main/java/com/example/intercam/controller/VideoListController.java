@@ -1,17 +1,16 @@
 package com.example.intercam.controller;
 
 
-import com.example.intercam.Repository.CommentService;
-import com.example.intercam.entity.User;
-import com.example.intercam.entity.VideoList;
+import com.example.intercam.entity.*;
 import com.example.intercam.service.AnalystService;
+import com.example.intercam.service.CommentService;
 import com.example.intercam.service.VideoListService;
+import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -51,6 +50,13 @@ public class VideoListController {
         VideoList videoList = videoListService.findVideo(id);
         videoListService.avgScore(videoList);
 
+        if(user == null || user.getAuth() == Auth.USER){
+            // 로그인 안 한 유저가 쓰면 알림창.
+            model.addAttribute("error", "login.please");
+            model.addAttribute("videoList", videoList);
+            return "/Sample/detail";
+        }
+
         model.addAttribute("user", user);
         model.addAttribute("videoList", videoList);
 
@@ -58,78 +64,70 @@ public class VideoListController {
     }
 
 
-//    // TODO 스코어 이쁘게..
-//    @PostMapping("/list/detail")
-//    @ResponseBody
-//    public String comment(@RequestParam String id,
-//                          @RequestParam String score,
-//                          @RequestParam String comment,
-//                          @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:user") User user,
-//                          Model model) {
-//        Long videoListId = Long.valueOf(id).longValue();
-//        Integer videoListScore = Integer.valueOf(score).intValue();
-//
-//        if(user == null){
-//            JSONObject jsonObject = new JSONObject();
-//            jsonObject.addProperty("result", false);
-//            model.addAttribute("error", "wrong.input");
-//            return "/Sample/detail";
-//        }
-//
-//        if(user.getAuth() != Auth.ANALYST){
-//            JsonObject jsonObject = new JsonObject();
-//            jsonObject.addProperty("result", false);
-//            model.addAttribute("error", "wrong.auth");
-//            return "/Sample/detail";
-//        }
-//
-//        Analyst analyst = analystService.findAna(user.getUserId());
-//
-//        Comment c = Comment.builder()
-//                .contents(comment)
-//                .score(videoListScore)
-//                .build();
-//
-//        commentService.save(c);
-//
-//        videoListService.addComment(videoListId, c);
-//        commentService.addAna(analyst, c);
-//
-//
-//        JsonObject jsonObject = new JsonObject();
-//        jsonObject.addProperty("result", true);
-//
-//        return jsonObject.toString();
-//    }
-//
-//    @RequestMapping("/list/commentDelete")
-//    @ResponseBody
-//    public String deleteComment(@RequestParam String comment_id,
-//                                @RequestParam String id,
-//                                @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:user") User user,
-//                                Model model){
-//
-//        Long videoListId = Long.valueOf(id).longValue();
-//        Long commentId = Long.valueOf(comment_id).longValue();
-//
-//        Comment comment = commentService.find(commentId);
-//        Analyst analyst = analystService.findAna(user.getUserId());
-//
-//        Analyst ana1 = comment.getAnalyst_id();
-//
-//
-//        if(ana1 != analyst){
-//            JsonObject jsonObject = new JsonObject();
-//            jsonObject.addProperty("result", false);
-//            model.addAttribute("error", "wrong.auth");
-//            return "/Sample/detail";
-//        }
-//
-//        commentService.removeFromList(videoListId, comment);
-//
-//        JsonObject jsonObject = new JsonObject();
-//        jsonObject.addProperty("result", true);
-//
-//        return jsonObject.toString();
-//    }
+    // TODO 스코어 이쁘게..
+    @PostMapping("/list/detail")
+    @ResponseBody
+    public String comment(@RequestParam String id,
+                          @RequestParam String score,
+                          @RequestParam String comment,
+                          @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:user") User user,
+                          Model model) {
+        Long videoListId = Long.valueOf(id).longValue();
+        Integer videoListScore = Integer.valueOf(score).intValue();
+
+        if(user.getAuth() != Auth.ANALYST || user==null){
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("result", false);
+            model.addAttribute("error", "wrong.auth");
+            return "/Sample/detail";
+        }
+
+        Analyst analyst = analystService.findAna(user.getUserId());
+
+        Comment c = Comment.builder()
+                .contents(comment)
+                .score(videoListScore)
+                .build();
+
+        commentService.save(c);
+
+        videoListService.addComment(videoListId, c);
+        commentService.addAna(analyst, c);
+
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("result", true);
+
+        return jsonObject.toString();
+    }
+
+    @RequestMapping("/list/commentDelete")
+    @ResponseBody
+    public String deleteComment(@RequestParam String comment_id,
+                                @RequestParam String id,
+                                @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:user") User user,
+                                Model model){
+
+        Long videoListId = Long.valueOf(id).longValue();
+        Long commentId = Long.valueOf(comment_id).longValue();
+
+        Comment comment = commentService.find(commentId);
+        Analyst analyst = analystService.findAna(user.getUserId());
+
+        Analyst ana1 = comment.getAnalyst_id();
+
+
+        if(ana1 != analyst){
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("result", false);
+            model.addAttribute("error", "wrong.auth");
+            return "/Sample/detail";
+        }
+
+        commentService.removeFromList(videoListId, comment);
+
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("result", true);
+
+        return jsonObject.toString();
+    }
 }

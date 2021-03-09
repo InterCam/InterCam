@@ -1,6 +1,7 @@
 package com.example.intercam.service;
 
 import com.example.intercam.Repository.VideoListRepository;
+import com.example.intercam.entity.Comment;
 import com.example.intercam.entity.VideoList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -88,10 +90,29 @@ public class VideoListService {
         return pageList;
     }
 
+    public VideoList findVideo(Long id){
+        Optional<VideoList> videoList = videoListRepository.findById(id);
 
-//    public VideoList findVideo(Long id) {
-//    }
-//
-//    public void avgScore(VideoList videoList) {
-//    }
+        return videoList.get();
+    }
+
+    @Transactional
+    public float avgScore(VideoList videoList){
+        List<Comment> commentList = videoList.getCommentList();
+
+        float sum = 0.0f;
+        for(Comment c: commentList){
+            sum += c.getScore();
+        }
+        videoList.setAvgScore(sum);
+        return sum /= (float)commentList.size();
+    }
+
+    @Transactional
+    public void addComment(Long id , Comment comment){
+
+        Optional<VideoList> videoList = videoListRepository.findById(id);
+        videoList.get().addComment(comment);
+//        videoList.get().setAvgScore(avgScore(videoList.get()));
+    }
 }

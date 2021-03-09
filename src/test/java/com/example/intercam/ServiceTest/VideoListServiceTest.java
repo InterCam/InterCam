@@ -1,57 +1,72 @@
-//package com.example.intercam.ServiceTest;
+package com.example.intercam.ServiceTest;
+
+import com.example.intercam.Repository.AnalysisRepository;
+import com.example.intercam.Repository.UserRepository;
+import com.example.intercam.Repository.VideoListRepository;
+import com.example.intercam.Repository.VideoRepository;
+import com.example.intercam.entity.*;
+import com.example.intercam.service.VideoListService;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import javax.transaction.Transactional;
+import java.util.Optional;
+
+@SpringBootTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Transactional
+public class VideoListServiceTest {
+    @Autowired
+    private VideoListService videoListService;
+
+    @Autowired
+    private VideoListRepository videoListRepository;
+
+    @Autowired
+    private VideoRepository videoRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private AnalysisRepository analysisRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @BeforeAll
+    public void saveList(){
+
+//        User u = new User();
+//        u.setAuth(Auth.USER);
+//        u.setBirth("2");
+//        u.setName("aaaaa");
+//        u.setPassword(passwordEncoder.encode("a"));
+//        u.setPhone("010");
+//        u.setUsername("11asdasd1");
 //
-//import com.example.intercam.Repository.UserRepository;
-//import com.example.intercam.Repository.VideoListRepository;
-//import com.example.intercam.Repository.VideoRepository;
-//import com.example.intercam.entity.Auth;
-//import com.example.intercam.entity.Video;
-//import com.example.intercam.entity.VideoList;
-//import com.example.intercam.service.VideoListService;
-//import org.h2.engine.User;
-//import org.junit.jupiter.api.BeforeAll;
-//import org.junit.jupiter.api.Test;
-//import org.junit.jupiter.api.TestInstance;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.context.SpringBootTest;
-//import org.springframework.data.domain.Page;
-//import org.springframework.data.domain.PageRequest;
-//import org.springframework.data.domain.Sort;
+//        userRepository.save(u);
 //
-//import javax.transaction.Transactional;
-//import java.util.Optional;
+//        Analyst a = new Analyst();
+//        a.setAuth(Auth.ANALYST);
+//        a.setBirth("0");
+//        a.setName("bbbbb");
+//        a.setPassword(passwordEncoder.encode("b"));
+//        a.setPhone("555");
+//        a.setUsername("GGGGG");
+//        a.setContents("iiiiiiiii");
 //
-//@SpringBootTest
-//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-//@Transactional
-//public class VideoListServiceTest {
-//    @Autowired
-//    private VideoListService videoListService;
-//
-//    @Autowired
-//    private VideoListRepository videoListRepository;
-//
-//    @Autowired
-//    private VideoRepository videoRepository;
-//
-//    @Autowired
-//    private UserRepository userRepository;
-//
-////    @BeforeAll
-////    public void saveUser(){
-////        User u = new User();
-////        u.setAuth(Auth.USER);
-////        u.setBirth("2");
-////        u.setName("aaaaa");
-////        u.setPassword("a");
-////        u.setPhone("010");
-////        u.setUsername("11asdasd1");
-////
-////        userRepository.save(u);
-////    }
+//        analysisRepository.save(a);
 //
 //
-//    @BeforeAll
-//    public void saveList(){
+//
 //        Video v = Video.builder()
 //                .title("test")
 //                .url("/WEB-INF/test.mov")
@@ -64,32 +79,32 @@
 //
 //        VideoList vl1 = VideoList.builder()
 //                .major("aaa")
-//                .views(111)
-//                .avgScore(98.0f)
+//                .views(0)
+//                .avgScore(0f)
 //                .build();
 //
 //        VideoList vl2 = VideoList.builder()
 //                .major("aaa")
-//                .views(20)
-//                .avgScore(10.0f)
+//                .views(0)
+//                .avgScore(0f)
 //                .build();
 //
 //        VideoList vl3 = VideoList.builder()
 //                .major("aaa")
-//                .views(13)
-//                .avgScore(51.9f)
+//                .views(0)
+//                .avgScore(0f)
 //                .build();
 //
 //        VideoList vl4 = VideoList.builder()
 //                .major("aaa")
-//                .views(48)
-//                .avgScore(73.5f)
+//                .views(0)
+//                .avgScore(0f)
 //                .build();
 //
 //        VideoList vl5 = VideoList.builder()
 //                .major("aaa")
-//                .views(500)
-//                .avgScore(56.9f)
+//                .views(0)
+//                .avgScore(0f)
 //                .build();
 //
 //        vl1.addVideo(v);
@@ -112,15 +127,14 @@
 //        videoListService.save(vl3);
 //        videoListService.save(vl4);
 //        videoListService.save(vl5);
-//    }
-//
-//    @Test
-//    public void getAllList(){
-//        Page<VideoList> page2 =videoListRepository.findAll(PageRequest.of(0, 10,  Sort.by(Sort.Direction.DESC, "listId")));
-//        System.out.println(page2.get());
-//    Optional<VideoList> test = videoListRepository.findById(1L);
-//        System.out.println(test.get().getUser_id().getName());
-//
-//    }
-//
-//}
+    }
+
+    @Test
+    public void getAllList(){
+        Page<VideoList> page2 =videoListRepository.findAll(PageRequest.of(0, 10,  Sort.by(Sort.Direction.DESC, "listId")));
+        System.out.println(page2.get());
+    Optional<VideoList> test = videoListRepository.findById(1L);
+
+    }
+
+}
