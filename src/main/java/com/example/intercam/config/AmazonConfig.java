@@ -22,6 +22,9 @@ public class AmazonConfig {
     @Value("${cloud.aws.region.static}")
     private String region;
 
+    @Value("${spring.mail.host}")
+    private String host;
+
     @Bean
     public AmazonS3 S3Client() {
 

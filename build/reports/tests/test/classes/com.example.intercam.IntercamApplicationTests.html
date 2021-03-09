@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - IntercamApplicationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>IntercamApplicationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.intercam.html">com.example.intercam</a> &gt; IntercamApplicationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.123s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contextLoads()</td>
+<td class="success">0.123s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>03:31:18.218 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+03:31:18.237 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+03:31:18.280 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.example.intercam.IntercamApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+03:31:18.296 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.example.intercam.IntercamApplicationTests], using SpringBootContextLoader
+03:31:18.301 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.intercam.IntercamApplicationTests]: class path resource [com/example/intercam/IntercamApplicationTests-context.xml] does not exist
+03:31:18.302 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.intercam.IntercamApplicationTests]: class path resource [com/example/intercam/IntercamApplicationTestsContext.groovy] does not exist
+03:31:18.302 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.intercam.IntercamApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+03:31:18.303 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.intercam.IntercamApplicationTests]: IntercamApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03:31:18.356 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.example.intercam.IntercamApplicationTests]
+03:31:18.437 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\임동진\Desktop\프로그래밍\intercam\build\classes\java\main\com\example\intercam\IntercamApplication.class]
+03:31:18.439 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.intercam.IntercamApplication for test class com.example.intercam.IntercamApplicationTests
+03:31:18.626 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.example.intercam.IntercamApplicationTests]: using defaults.
+03:31:18.628 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03:31:18.665 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3b6f1b97, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@24de0fb5, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@492344e4, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5f9cb10f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1c6caac8, org.springframework.test.context.support.DirtiesContextTestExecutionListener@481bad57, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1b4cd4d4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@21e21a7b, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@58a1ce65, org.springframework.test.context.event.EventPublishingTestExecutionListener@4dc5a133, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@30d2362b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1d2d388, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5756f731, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@37fa18d1, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@16b8036b, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@1e1cca7, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@616e4cd5]
+03:31:18.669 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@401f8079 testClass = IntercamApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3b15a24 testClass = IntercamApplicationTests, locations = '{}', classes = '{class com.example.intercam.IntercamApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@3854d1fb, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@459d33a5, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@206202fd, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@73a8eddd, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@42b8d3cb, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@3ffe14df], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+03:31:18.705 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.2)
+
+2021-03-09 03:31:19.035  INFO 17288 --- [    Test worker] c.e.intercam.IntercamApplicationTests    : Starting IntercamApplicationTests using Java 11.0.9 on LAPTOP-Q3SO0HE6 with PID 17288 (started by �엫�룞吏� in C:\Users\�엫�룞吏�\Desktop\�봽濡쒓렇�옒諛�\intercam)
+2021-03-09 03:31:19.036  INFO 17288 --- [    Test worker] c.e.intercam.IntercamApplicationTests    : The following profiles are active: aws
+2021-03-09 03:31:20.294  INFO 17288 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-03-09 03:31:20.462  INFO 17288 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 157 ms. Found 8 JPA repository interfaces.
+2021-03-09 03:31:21.275  INFO 17288 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-09 03:31:21.519  INFO 17288 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-09 03:31:21.628  INFO 17288 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-09 03:31:21.716  INFO 17288 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-09 03:31:22.020  INFO 17288 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-09 03:31:22.233  INFO 17288 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-03-09 03:31:22.576  INFO 17288 --- [    Test worker] o.hibernate.id.enhanced.TableGenerator   : HHH000398: Explicit segment value for id generator [hibernate_sequences.sequence_name] suggested; using default [default]
+2021-03-09 03:31:23.279  INFO 17288 --- [    Test worker] org.hibernate.tuple.PojoInstantiator     : HHH000182: No default (no-argument) constructor for class: com.example.intercam.Sample.Files_replace (class must be instantiated by Interceptor)
+2021-03-09 03:31:23.540  INFO 17288 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-09 03:31:23.550  INFO 17288 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-09 03:31:24.184  WARN 17288 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-09 03:31:25.616  INFO 17288 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e79a94a, org.springframework.security.web.context.SecurityContextPersistenceFilter@6eebdfb4, org.springframework.security.web.authentication.logout.LogoutFilter@6b3f12cb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@f673b06, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b625a71, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2bbdda1b, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4e0bd225, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@287fb0aa, org.springframework.security.web.session.SessionManagementFilter@57a81822, org.springframework.security.web.access.ExceptionTranslationFilter@69ca30e1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5348d090]
+2021-03-09 03:31:26.309  INFO 17288 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-09 03:31:26.401  INFO 17288 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2021-03-09 03:31:26.512  INFO 17288 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-03-09 03:31:27.121  INFO 17288 --- [    Test worker] c.e.intercam.IntercamApplicationTests    : Started IntercamApplicationTests in 8.405 seconds (JVM running for 10.573)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.7.1</a> at 2021. 3. 9. 오전 3:31:27</p>
+</div>
+</div>
+</body>
+</html>

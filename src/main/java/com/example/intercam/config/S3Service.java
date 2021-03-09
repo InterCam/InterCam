@@ -5,7 +5,7 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,10 +13,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class S3Service {
 
-    private AmazonS3 s3Client;
+    private final AmazonS3 s3Client;
 
     @Value("${cloud.aws.s3.bucket}")
     private String bucket;

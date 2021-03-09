@@ -9,7 +9,7 @@ import com.example.intercam.entity.User;
 import com.example.intercam.entity.Video;
 import com.example.intercam.entity.VideoList;
 import com.example.intercam.service.VideoService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,12 +21,12 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class VideoController {
 
-    private S3Service s3Service;
-    private VideoService videoService;
-    private AmazonS3 s3Client;
+    private final S3Service s3Service;
+    private final VideoService videoService;
+    private final AmazonS3 s3Client;
     private final UserRepository userRepository;
     private final VideoListRepository videoListRepository;
 

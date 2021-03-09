@@ -1,4 +1,2 @@
 com/example/intercam/IntercamApplicationTests.java
  com.example.intercam.IntercamApplicationTests
-com/example/intercam/ServiceTest/VideoListServiceTest.java
- com.example.intercam.ServiceTest.VideoListServiceTest

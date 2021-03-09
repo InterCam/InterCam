@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>내 동영상 목록</title>
+</head>
+<body>
+<h1> 내 동영상</h1>
+<ul th:each="videoList:${videoList}">
+    <video controls poster="">
+        <source src="${videoList.video_id.url}" type="mov">
+    </video>
+
+    <span th:text="${videoList.video_id.title}"></span>
+    <img src="${videoList.video_id.url}">
+
+</ul>
+</body>
+</html>
