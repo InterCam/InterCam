@@ -79,10 +79,10 @@ com/example/intercam/entity/UserDetail_r.java
  com.example.intercam.entity.UserDetail_r$1
 com/example/intercam/dto/AnalystResponseDto.java
  com.example.intercam.dto.AnalystResponseDto
-com/example/intercam/controller/VideoListController.java
- com.example.intercam.controller.VideoListController
-com/example/intercam/service/VideoListService.java
- com.example.intercam.service.VideoListService
+com/example/intercam/controller/AnalystController.java
+ com.example.intercam.controller.AnalystController
+com/example/intercam/service/AnalystService.java
+ com.example.intercam.service.AnalystService
 com/example/intercam/dto/UserJoinDto.java
  com.example.intercam.dto.UserJoinDto
  com.example.intercam.dto.UserJoinDto$UserJoinDtoBuilder
@@ -94,6 +94,7 @@ com/example/intercam/dto/FAQResponseDto.java
  com.example.intercam.dto.FAQResponseDto
 com/example/intercam/entity/PersistentLogins.java
  com.example.intercam.entity.PersistentLogins
+<<<<<<< HEAD
 com/example/intercam/config/AmazonConfig.java
  com.example.intercam.config.AmazonConfig
 com/example/intercam/service/AnalystService.java
@@ -102,3 +103,14 @@ com/example/intercam/controller/MainController.java
  com.example.intercam.controller.MainController
 com/example/intercam/Repository/VideoRepository.java
  com.example.intercam.Repository.VideoRepository
+=======
+com/example/intercam/Sample/Files_replace.java
+ com.example.intercam.Sample.Files_replace
+ com.example.intercam.Sample.Files_replace$Files_replaceBuilder
+com/example/intercam/controller/MainController.java
+ com.example.intercam.controller.MainController
+com/example/intercam/controller/VideoListController.java
+ com.example.intercam.controller.VideoListController
+com/example/intercam/service/VideoListService.java
+ com.example.intercam.service.VideoListService
+>>>>>>> a97805cf5212aa6932c1a96498c4dcc54b65e538

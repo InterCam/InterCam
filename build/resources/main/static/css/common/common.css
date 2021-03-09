@@ -96,3 +96,11 @@ element.style {
     border-color: black;
     background-color: rgb(255, 255, 255);
 }
+.row {
+     margin-right: 0;
+     margin-left: 0px;
+}
+
+body{
+    background-color: #97a5d0;
+}

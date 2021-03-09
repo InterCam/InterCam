@@ -276,7 +276,7 @@
                                         <input type="radio" name="status" value="비공개">비공개
                                     </div>
 
-                                <form th:action="@{/upload}" name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post">
+                                <form th:action="@{/upload}" name="uploadForm" name="file" id="uploadForm" enctype="multipart/form-data" method="post">
 
                                     <div id="dropZone" style="width: 500px; height: 100px; border-style: solid; border-color: black; background-color: lightgray">
                                         <div id="fileDragDesc"> 파일을 드래그 해주세요. </div>
@@ -289,10 +289,10 @@
                                     </div>
 
                                     <div class="upload-btn-wrapper">
-                                        <input th:action="@{/upload}" type="file" id="input_file" multiple="multiple/form-data" method="post" style="height: 100%;" />
+                                        <input th:action="@{/upload}" type="file" id="input_file" name="file" multiple="multiple/form-data" method="post" style="height: 100%;" />
                                         <button class="upload-btn">파일선택</button>
                                     </div>
-                                    <button class="btn btn-primary">영상 등록하기</button>
+                                    <button class="btn btn-primary"  style="margin: 10% 45%;">영상 등록하기</button>
                                 </form>
 
 
