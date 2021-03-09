@@ -89,5 +89,9 @@ public class VideoListService {
     }
 
 
-
+//    public VideoList findVideo(Long id) {
+//    }
+//
+//    public void avgScore(VideoList videoList) {
+//    }
 }

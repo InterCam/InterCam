@@ -32,7 +32,7 @@ public class VideoController {
 
     @GetMapping("/upload")
     public String write(Model model) {
-        return "Sample/upload";
+        return "mylist/addvideo";
     }
 
     //업로드

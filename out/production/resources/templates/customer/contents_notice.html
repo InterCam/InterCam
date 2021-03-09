@@ -1,27 +1,38 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<table border="1">
-<!--    공지사항 답변-->
-    <thead>
-    <th>
-        FAQ
-    </th>
-    </thead>
 
-    <tbody th:each="notice:${notice}">
+<html xmlns="http://www.w3.org/1999/xhtml"
 
-    <tr>
-        <td>
-            <a th:text="${notice.title}"></a>
-        </td>
-    </tr>
+      xmlns:th="http://www.thymeleaf.org"
 
-    <tr>
-        <td>
-            <a th:text="${notice.content}"></a>
-        </td>
-    </tr>
-    </tbody>
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 
-</table>
+      layout:decorate="layout/common_layout">
+
+<div layout:fragment="content">
+
+    <link rel="stylesheet" th:href="@{/css/common/notice.css}"/>
+
+
+    <style>
+
+        #container a {
+
+            display: block;
+
+        }
+
+    </style>
+    <ul class="board">
+        <h2>공지사항</h2>
+        <ul>
+            <li class="fl tc w1000 title t_line" th:text="${notice.title}"></li>
+        </ul>
+    </ul>
+
+    <ul class="board">
+        <li class="fl tc w1000 list t_line lt_line">
+            <p th:text="${notice.content}"></p>
+        </li>
+    </ul>
+</div>
 </html>

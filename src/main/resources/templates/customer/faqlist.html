@@ -14,27 +14,13 @@
             <!-- 게시판 목록  -->
             <li>
                 <ul id="ulTable">
-                    <li>
-                        <ul>
-                            <li>No</li>
-                            <li>제목</li>
-                            <li>작성일</li>
-                            <li>작성자</li>
-                        </ul>
-                    </li>
                     <!-- 게시물이 출력될 영역 -->
-
                     <li>
                         <ul th:each="faq:${faqList}">
-                            <li th:text="${faq.id}"></li>
                             <li style="display: inherit">
                                 <a th:text="${faq.title}" th:id="'faq' + ${faq.id}"></a>
                                 <p th:text="${faq.contents}" style="display : none" th:id="'contents'+${faq.id}"></p>
                             </li>
-                            <li>2021-02-26</li>
-
-                            <li>MEGAIT</li>
-
                         </ul>
                     </li>
                 </ul>
