@@ -32,7 +32,7 @@ public class VideoController {
 
     @GetMapping("/upload")
     public String write(Model model) {
-        return "mylist/addvideo";
+        return "Sample/upload";
     }
 
     //업로드
@@ -40,6 +40,9 @@ public class VideoController {
     public String upload(Video video, MultipartFile file, VideoList videoList,
                          @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:userResponseDto")
                                  UserResponseDto userResponseDto) throws IOException {
+
+        System.out.println(file.getOriginalFilename());
+
         String url = s3Service.upload(file);
         video.setUrl(url);
         videoService.saveVideo(video);

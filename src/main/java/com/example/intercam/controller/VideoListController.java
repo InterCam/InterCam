@@ -32,8 +32,6 @@ public class VideoListController {
         return "/alllist/videoList_idDESC";
     }
 
-
-
     @GetMapping("/list/videoRankList")
     public String videoRankList(Model model){
         List<VideoList> videoLists = videoListService.getVideoRankList();
