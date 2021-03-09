@@ -24,7 +24,7 @@ public class User extends BaseTimeEntity {
     @OneToOne @JoinColumn(name = "major_id")
     private Major major_id;
 
-    @OneToMany(mappedBy = "user_id", fetch = FetchType.LAZY,
+    @OneToMany(mappedBy = "userId", fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE,
                     CascadeType.PERSIST, CascadeType.REFRESH}) // 동영상 리스트
     private List<VideoList> list_id;

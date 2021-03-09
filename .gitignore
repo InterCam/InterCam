@@ -2,3 +2,4 @@
 .idea
 /**/application-test.properties
 /**/application-db.properties
+/**/application-aws.properties

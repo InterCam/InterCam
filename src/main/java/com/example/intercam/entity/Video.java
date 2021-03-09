@@ -35,4 +35,8 @@ public class Video {
     public void addVideoList(VideoList videoList){ // VideoList에서 addVideo로 할 것
         this.listid = videoList;
     }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

@@ -1,6 +1,6 @@
 package com.example.intercam.controller;
 
-import com.example.intercam.dto.NoticeResponseDto;
+
 import com.example.intercam.entity.VideoList;
 import com.example.intercam.service.VideoListService;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +28,7 @@ public class VideoListController {
     }
 
 
+
     @GetMapping("/list/videoRankList")
     public String videoRankList(Model model){
         List<VideoList> videoLists = videoListService.getVideoRankList();
@@ -36,6 +37,4 @@ public class VideoListController {
 
         return "/alllist/videoRankList";
     }
-
-
 }
