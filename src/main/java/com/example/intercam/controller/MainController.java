@@ -29,5 +29,5 @@ public class MainController {
 
     //테스트 할때 쓰기
     @GetMapping("/testing")
-    public String text() { return "Sample/mylist";}
+    public String text() { return "mylist/addvideo";}
 }

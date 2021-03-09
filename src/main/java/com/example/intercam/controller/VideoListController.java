@@ -1,5 +1,6 @@
 package com.example.intercam.controller;
 
+import com.example.intercam.dto.NoticeResponseDto;
 import com.example.intercam.entity.VideoList;
 import com.example.intercam.service.VideoListService;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,7 @@ public class VideoListController {
         model.addAttribute("pageList", pageList);
         return "/alllist/videoList_idDESC";
     }
+
 
     @GetMapping("/list/videoRankList")
     public String videoRankList(Model model){
