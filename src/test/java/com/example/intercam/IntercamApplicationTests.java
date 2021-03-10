@@ -5,7 +5,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class IntercamApplicationTests {
-
 	@Test
 	void contextLoads() {
 		System.out.println("horrY");
