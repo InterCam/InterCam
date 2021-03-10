@@ -25,6 +25,7 @@ public class NoticeController {
         Page<Notice> list = noticeService.findAllDesc(pageable);
 
         model.addAttribute("noticeList", list);
+        model.addAttribute("pageNumber",list.getTotalPages());
 
         return "customer/noticelist";
     }

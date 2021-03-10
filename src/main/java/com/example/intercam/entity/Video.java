@@ -22,9 +22,10 @@ public class Video {
     @NotNull // 제목
     private String title;
 
-    //TODO AWS S3에서 동영상 URL 불러오는 로직 찾기
     @NotNull
     private String url;
+
+    private String graph;
 
     @Builder
     public Video(@NotNull String title, @NotNull String url) {
@@ -38,5 +39,9 @@ public class Video {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public void setGraph(String graph) {
+        this.graph = graph;
     }
 }

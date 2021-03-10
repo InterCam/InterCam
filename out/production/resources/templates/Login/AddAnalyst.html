@@ -35,7 +35,7 @@
                                 </a>
                             </div>
                             <div class="p-2">
-                                <form class="form-horizontal" action="/admin/analyst" method="POST">
+                                <form class="form-horizontal" action="/admin/analyst" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="useremail">이메일</label>
                                         <input type="email" class="form-control" name="username" id="useremail" placeholder="이메일을 입력해주세요">
@@ -52,18 +52,18 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="datetime">생년월일</label>
-                                        <input type="date" class ="form-control" name="birth" id="datetime" placeholder="예)2000-00-00">
-                                    </div>
-
-                                    <div class="form-group">
                                         <label for="phonenum">연락처</label>
                                         <input type="text" class="form-control" name="phone" id="phonenum" placeholder="'-'없이 입력 예)010-1234-1234">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="imeage"> 이미지</label>
-                                        <input type="file" class="form-control" name="img" id="imeage">
+                                        <label for="datetime">생년월일</label>
+                                        <input type="date" class ="form-control" name="birth" id="datetime" placeholder="예)2000-00-00">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="image"> 이미지</label>
+                                        <input type="file" class="form-control" name="file" id="image">
                                     </div>
 
                                     <div class="form-group">
@@ -71,7 +71,7 @@
                                         <input type="text" class="form-control" name="contents" id="txt" placeholder="설명">
                                     </div>
                                     <div class="mt-4">
-                                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">회원가입</button>
+                                        <input class="btn btn-primary btn-block waves-effect waves-light" type="submit" formmethod="post" formenctype="multipart/form-data" value="회원가입">
                                     </div>
                                 </form>
                             </div>

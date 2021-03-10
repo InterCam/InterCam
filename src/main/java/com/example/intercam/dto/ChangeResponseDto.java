@@ -2,8 +2,10 @@ package com.example.intercam.dto;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class ChangeResponseDto {
 
     private String username;

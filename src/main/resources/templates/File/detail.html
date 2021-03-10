@@ -10,32 +10,21 @@
     <link rel="stylesheet" th:href="@{/css/common/list.css}" />
 
     <center>
-        <video autoplay controls loop>
-            <source src="${videoList.video_id.url}" type="mov">
-        </video>
+<!--        <video autoplay controls loop>-->
+<!--            <source th:src="${videoList.url}" type="video/mp4">-->
+<!--        </video>-->
+        <img th:src="${videoList.url}" style="max-width:50%">
 
         <hr class="col-12 my-4">
 
         <table>
             <tr>
-                <td><span type="text" th:text="'제목 :' + ${videoList.video_id.title}" aria-disabled="true"></span></td>
+                <td><span type="text" th:text="'제목 :' + ${videoList.title}" aria-disabled="true"></span></td>
                 <td><input type="text" th:value="'평점 :' + ${videoList.avgScore}" disabled></td>
-            </tr>
-            <tr>
-                <td><input type="text" th:value="'주요분야 :' + ${videoList.major}" disabled></td>
             </tr>
         </table>
 
     </center>
-
-
-    <div th:if="error == wrong.input">
-        <span>로그인이 필요한 기능입니다.</span>
-    </div>
-
-    <div th:if="error == wrong.auth">
-        <span>권한이 없습니다.</span>
-    </div>
 
     <input th:if="${error} == null" placeholder="점수" name="score" type="number" min="1" max="10">
 
@@ -43,30 +32,30 @@
     <button th:if="${error} == null" name="addComment">등록</button>
     <hr class="col-12 my-4">
 
-    <table th:each="comment:${videoList.commentList}">
-            <tr>
-                <th>
-                    <img src="https://img.icons8.com/material/18/000000/popular-man.png"/>
-                    <input type="text" readonly th:value="${comment.analyst_id.name} + '님'" disabled>
-                </th>
-            </tr>
+    <table th:each="comment:${commentList}">
+        <tr>
+            <th>
+                <img src="https://img.icons8.com/material/18/000000/popular-man.png"/>
+                <input type="text" readonly th:value="${comment.name} + '님'" disabled>
+            </th>
+        </tr>
 
-            <tr>
-                <td>
-                    <input type="text" readonly th:value="${comment.score} + '점'" disabled>
+        <tr>
+            <td>
+                <input type="text" readonly th:value="${comment.score} + '점'" disabled>
 
-                    <td align="left"><button name="delete" th:id="${comment.comment_id}") sec:authorize="isAuthenticated()">X</button></td>
-                </td>
-            </tr>
+            <td align="left"><button name="delete" th:id="${comment.commentId}") sec:authorize="isAuthenticated()">X</button></td>
+            </td>
+        </tr>
 
-            <tr>
-                <td>
-                    <input type="text" readonly th:value="${comment.contents}" style="width:80%;height:150%;border:1" disabled>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <input type="text" readonly th:value="${comment.contents}" style="width:80%;height:150%;border:1" disabled>
+            </td>
+        </tr>
     </table>
 
-
+    <hr>
     <script>
         function getId(id){
             id = id.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -94,8 +83,8 @@
                  type: 'post',
                  data: {'id': id, 'comment':insertData, 'score':score},
                  success: function(result){
-                        alert("댓글이 등록되었습니다.");
-                        location.reload();
+                        alert(result);
+                        window.location.reload(true);
                  }
             });
         }
@@ -113,9 +102,9 @@
                 type: 'post',
                 data: {'comment_id':comment_id, 'id':id},
                  success: function(result){
-                        alert("댓글이 삭제되었습니다.");
-                        location.reload();
-                 }
+                        alert(result);
+                        window.location.reload(true);
+                 },
             });
         }
     </script>

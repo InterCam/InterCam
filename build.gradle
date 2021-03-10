@@ -38,6 +38,8 @@ dependencies {
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-aws', version: '2.2.1.RELEASE', ext: 'pom'
 	implementation group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.956'
 	implementation 'com.google.code.gson:gson'
+	compile 'org.mariadb.jdbc:mariadb-java-client'
+	compile 'org.springframework.boot:spring-boot-devtools'
 }
 
 

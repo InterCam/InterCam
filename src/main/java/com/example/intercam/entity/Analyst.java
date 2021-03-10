@@ -15,16 +15,12 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Setter
 public class Analyst extends User{
-    private String img; // 이미지 url
-
-    @NotNull
-    private String contents; // 이력 / 학력
+    private String contents;
 
     @Builder
     public Analyst(@NotNull String username, @NotNull String password, @NotNull String phone, @NotNull String name,
-                   @NotNull String birth, String img, @NotNull String contents) {
+                   @NotNull String birth, String contents) {
         super(username, password, phone, name, birth);
-        this.img = img;
         this.contents = contents;
     }
 }

@@ -12,17 +12,15 @@ public class AnalystRequestDto {
     private String phone;
     private String name;
     private String birth;
-    private String img;
     private String contents;
 
     @Builder
-    public AnalystRequestDto(String username, String password, String phone, String name, String birth, String img, String contents) {
+    public AnalystRequestDto(String username, String password, String phone, String name, String birth, String contents) {
         this.username = username;
         this.password = password;
         this.phone = phone;
         this.name = name;
         this.birth = birth;
-        this.img = img;
         this.contents = contents;
     }
 
@@ -33,7 +31,6 @@ public class AnalystRequestDto {
                 .phone(phone)
                 .name(name)
                 .birth(birth)
-                .img(img)
                 .contents(contents)
                 .build();
     }

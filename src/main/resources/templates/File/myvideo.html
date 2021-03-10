@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/common_layout">
+<div layout:fragment="content">
+<h1> 내 동영상</h1>
+
+<table border="1">
+    <tr>
+        <td>제목</td>
+        <td>평균점수</td>
+        <td>동영상</td>
+    </tr>
+
+    <tr th:each="videoList:${videoList}">
+        <td th:text="${videoList.title}"></td>
+        <td th:text="${videoList.avg_score}"></td>
+        <td th:text="${videoList.url}"></td>
+    </tr>
+</table>
+</div>
+</html>

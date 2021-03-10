@@ -16,15 +16,12 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Setter
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-
-    @OneToOne @JoinColumn(name = "major_id")
-    private Major major_id;
 
     @OneToMany(mappedBy = "userId", fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE,
@@ -72,10 +69,6 @@ public class User extends BaseTimeEntity {
         }
         list_id.add(videoList);
         videoList.addUser(this);
-    }
-
-    public void addMajor(Major major){
-        major_id = major;
     }
 
     public void changePassword(String password){

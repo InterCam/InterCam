@@ -8,12 +8,14 @@
 <!--    순위/리스트-->
     <div class="container">
         <div th:each="videoList:${videoLists}">
-            <video width="500" height="300" poster="#" muted controls>
-                <source src="${videoList.video_id.url}" type="mov">
-            </video>
-<!--            <li><a href="#" th:text="'제목:' +${videoList.video_id.title}"></a></li>-->
-<!--            <li th:text= "'작성자:' + ${videoList.user_id.name}"></li>-->
-<!--            <li th:text= "'평점: ' + ${videoList.avgScore}"></li>-->
+<!--            <video width="500" height="300" poster="#" muted controls>-->
+<!--                <source src="${videoList.url}" type="video/mp4">-->
+<!--            </video>-->
+            <img th:src="${videoList.url}" style="max-width:60%">
+            <li><a href="#" th:text="'제목:' +${videoList.title}"></a></li>
+            <li th:text= "'작성자:' + ${videoList.username}"></li>
+            <li th:text= "'평점: ' + ${videoList.avgScore}"></li>
+            <hr style="visibility:hidden">
         </div>
     </div>
 </div>

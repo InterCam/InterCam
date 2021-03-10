@@ -12,16 +12,16 @@ import javax.validation.constraints.NotNull;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Comment extends BaseTimeEntity {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long comment_id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH,
+    @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name="list_id") // 유저 리스트
-    private VideoList list_Id;
+    private VideoList listId;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -46,6 +46,6 @@ public class Comment extends BaseTimeEntity {
     }
 
     public void addVideoList(VideoList videoList) {
-        this.list_Id = videoList;
+        this.listId = videoList;
     }
 }

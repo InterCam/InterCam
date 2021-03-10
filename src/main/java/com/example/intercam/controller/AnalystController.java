@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.util.List;
 
@@ -24,17 +26,17 @@ public class AnalystController {
         return "intro/analyst";
     }
 
-    //TODO
     @GetMapping("/admin/analyst")
     public String save(){
         return "Login/AddAnalyst";
     }
 
-    //TODO img파일 저장 & 경로 저장
     @PostMapping("/admin/analyst")
-    public String saveAnalyst(AnalystRequestDto analystRequestDto){
+    public String saveAnalyst(MultipartHttpServletRequest request, AnalystRequestDto requestDto) throws Exception{
 
-        analystService.save(analystRequestDto);
+        MultipartFile file = request.getFile("file");
+
+        analystService.save(file, requestDto);
 
         return "redirect:/";
     }

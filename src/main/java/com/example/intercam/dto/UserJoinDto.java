@@ -3,8 +3,10 @@ package com.example.intercam.dto;
 import com.example.intercam.entity.User;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class UserJoinDto {
     private String username;
     private String password;
