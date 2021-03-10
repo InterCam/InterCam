@@ -1,22 +1,32 @@
-#language: java
-#jdk:
-#  - openjdk11
-#
-#branches:
-#  only:
-#    - main
-#
-#before_install:
-#  - chmod +x gradlew
-## Travis CI 서버의 HOME
-#cache:
-#  directories:
-#    - '$HOME/.m2/repository'
-#    - '$HOME/.gradle'
-#
-#script: "./gradlew --debug build"
-#
-#notifications:
-#  email:
-#    recipients:
-#      - gitvideouser@gmail.com
+language: java
+jdk:
+  - openjdk11
+
+branches:
+  only:
+    - master
+
+# Travis CI 서버의 HOME
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+
+script: "./gradlew clean build"
+
+before_install:
+  - chmod +x gradlew
+
+before_deploy:
+  - mkdir -p before-deploy
+  - cp scripts/*.sh before-deploy/
+  - cp appspec.yml before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cd before-deploy && zip -r before-deploy *
+  - cd ../ && mkdir -p deploy
+  - mv before-deploy/before-deploy.zip deploy/freelec-springboot2-webservice.zip
+
+notifications:
+  email:
+    recipients:
+      - gitvideouser@gmail.com
