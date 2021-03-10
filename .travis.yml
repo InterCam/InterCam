@@ -1,22 +1,22 @@
-language: java
-jdk:
-  - openjdk11
-
-branches:
-  only:
-    - main
-
-before_install:
-  - chmod +x gradlew
-# Travis CI 서버의 HOME
-cache:
-  directories:
-    - '$HOME/.m2/repository'
-    - '$HOME/.gradle'
-
-script: "./gradlew --debug build"
-
-notifications:
-  email:
-    recipients:
-      - gitvideouser@gmail.com
+#language: java
+#jdk:
+#  - openjdk11
+#
+#branches:
+#  only:
+#    - main
+#
+#before_install:
+#  - chmod +x gradlew
+## Travis CI 서버의 HOME
+#cache:
+#  directories:
+#    - '$HOME/.m2/repository'
+#    - '$HOME/.gradle'
+#
+#script: "./gradlew --debug build"
+#
+#notifications:
+#  email:
+#    recipients:
+#      - gitvideouser@gmail.com

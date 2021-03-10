@@ -47,8 +47,11 @@ public class VideoListController {
         VideoResponseDto videoResponseDto = videoListService.avgScore(id);
         List<CommentResponseDto> commentResponseDtos = commentService.findComments(id);
 
+
         model.addAttribute("videoList", videoResponseDto);
         model.addAttribute("commentList",commentResponseDtos);
+
+        model.addAttribute("graph",videoResponseDto.getGraph());
 
         if(userResponseDto == null || userResponseDto.getAuth() == Auth.USER){
             model.addAttribute("error", "login.please");

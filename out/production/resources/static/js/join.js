@@ -20,15 +20,14 @@ var main2 = {
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data),
-            success : function(data){
-                alert("회원가입에 성공하셨습니다!");
-                window.location.href="/login";
-            },
-            error:function(error){
-                alert("이미 있는 아이디거나 입력을 누락하신 부분이 있습니다!");
-                window.location.href="/join";
-            }
-        });
+
+        }).done(function(data){
+            alert("회원가입에 성공하셨습니다!");
+            window.location.href="/login";
+        }).fail(function(error){
+            alert(JSON.stringify(error));
+            window.location.href="/join";
+        })
     }
 };
 
