@@ -8,7 +8,7 @@ class IntercamApplicationTests {
 
 	@Test
 	void contextLoads() {
-
+		System.out.println("horrY");
 	}
 
 }
