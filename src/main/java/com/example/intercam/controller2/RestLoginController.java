@@ -17,20 +17,20 @@ public class RestLoginController {
     private final HtmlEmailService htmlEmailService;
 
     @PostMapping("/join")
-    public String join(@RequestBody UserJoinDto userJoinDto){
+    public UserJoinDto join(@RequestBody UserJoinDto userJoinDto){
         String username = loginService.join(userJoinDto);
 
         System.out.println(username);
 
-        return username;
+        return userJoinDto;
     }
 
     @PostMapping("/change")
-    public Boolean changing(@RequestBody ChangeResponseDto changeResponseDto){
+    public ChangeResponseDto changing(@RequestBody ChangeResponseDto changeResponseDto){
         String uuid = loginService.find(changeResponseDto);
 
         htmlEmailService.sendEmail(changeResponseDto, uuid);
 
-        return true;
+        return changeResponseDto;
     }
 }

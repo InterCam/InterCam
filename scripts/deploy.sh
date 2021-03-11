@@ -4,7 +4,7 @@ REPOSITORY=/home/ec2-user/app/step1
 
 echo "> Build 파일 복사"
 
-cp $REPOSITORY/zip/build/libs/*.jar $REPOSITORY
+cp $REPOSITORY/zip/*.jar $REPOSITORY
 
 echo "> 8080 포트가 사용 중이라면 다운 종료"
 
