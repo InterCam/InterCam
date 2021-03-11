@@ -17,20 +17,20 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r Intercam *
+  - zip -r intercam *
   - mkdir -p deploy
-  - mv Intercam.zip deploy/Intercam.zip
+  - mv intercam.zip deploy/intercam.zip
 
 deploy:
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  bucket: intercambucket
-  region: ap-northeast-2
-  skip_cleanup: true
-  acl: private
-  local_dir: deploy
-  wait-until-deployed: true
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: intercambucket
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
 
 
 notifications:
