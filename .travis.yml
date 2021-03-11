@@ -35,7 +35,7 @@ deploy:
     on:
       all_branches: true
 
-- provider: codedeploy
+  - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: intercambucket
