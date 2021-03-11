@@ -12,6 +12,7 @@
 <!--                <source src="${videoList.url}" type="video/mp4">-->
 <!--            </video>-->
             <img th:src="${videoList.url}" style="max-width:60%">
+<!--            TODO-->
             <li><a href="#" th:text="'제목:' +${videoList.title}"></a></li>
             <li th:text= "'작성자:' + ${videoList.username}"></li>
             <li th:text= "'평점: ' + ${videoList.avgScore}"></li>

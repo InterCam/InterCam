@@ -4,18 +4,24 @@ import com.example.intercam.service.PrincipalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.AccessDecisionManager;
+import org.springframework.security.access.AccessDecisionVoter;
 import org.springframework.security.access.expression.SecurityExpressionHandler;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
+import org.springframework.security.access.vote.AffirmativeBased;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
+import org.springframework.security.web.access.expression.WebExpressionVoter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Configuration
@@ -36,10 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .headers().disable();
 
         http.authorizeRequests()
-                .anyRequest().permitAll()
-                //.antMatchers("","/","/join", "/assets/**", "/css/**", "/faq/**", "/notice/**").permitAll()
-                //.antMatchers("/admin/**").hasRole(Role.ADMIN.name())
-                //.anyRequest().authenticated()
+                .antMatchers("/","/join", "/assets/**", "/css/**", "/faq/**", "/notice/**", "/js/**","/Images/**").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated() //그외는 인증해야함
+                .accessDecisionManager(myAccessDecisionManager())
                 .expressionHandler(securityExpressionHandler())
             .and()
                 .formLogin().permitAll()
@@ -53,6 +59,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
                 .rememberMe().userDetailsService(principalService)
                 .tokenRepository(tokenRepository());
+    }
+
+    private AccessDecisionManager myAccessDecisionManager() {
+        RoleHierarchyImpl roleHierachy = new RoleHierarchyImpl();
+        roleHierachy.setHierarchy("ADMIN > ANALYST > USER");
+
+
+        WebExpressionVoter voter = new WebExpressionVoter();
+
+
+        DefaultWebSecurityExpressionHandler handler = new DefaultWebSecurityExpressionHandler();
+        handler.setRoleHierarchy(roleHierachy);
+        voter.setExpressionHandler(handler);
+
+
+        List<AccessDecisionVoter<?>> voters = Arrays.asList(voter);
+
+
+        AffirmativeBased affirmativeBased = new AffirmativeBased(voters);
+        return affirmativeBased;
     }
 
     @Bean
