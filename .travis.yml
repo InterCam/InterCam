@@ -23,31 +23,28 @@ before_deploy:
 
 
 deploy:
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: intercambucket
-    region: ap-northeast-2
-    skip_cleanup: true
-    acl: private
-    local_dir: deploy
-    wait-until-deployed: true
-    on:
-      all_branches: true
+    - provider: s3
+      access_key_id: $AWS_ACCESS_KEY
+      secret_access_key: $AWS_SECRET_KEY
+      bucket: intercambucket
+      region: ap-northeast-2
+      skip_cleanup: true
+      acl: private
+      local_dir: deploy
+      wait-until-deployed: true
+      on:
+        all_branches: true
 
-  - provider: codedeploy
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: intercambucket
-    key: intercam.zip
-    bundle_type: zip
-    application: intercamDeploy
-    deployment_group: intercamDeploy
-    region: ap-northeast-2
-    wait-until-deployed: true
-    on:
-      all_branches: true
-
+    - provider: codedeploy
+      access_key_id: $AWS_ACCESS_KEY
+      secret_access_key: $AWS_SECRET_KEY
+      bucket: intercambucket
+      key: intercam.zip
+      bundle_type: zip
+      application: intercamDeploy
+      deployment_group: intercamDeploy
+      region: ap-northeast-2
+      wait-until-deployed: true
 
 notifications:
   email:
