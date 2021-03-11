@@ -17,9 +17,9 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - sudo cp scripts/*.sh .
-  - sudo cp appspec.yml .
-  - sudo cp build/libs/*.jar .
+  - sudo cp scripts/*.sh ./
+  - sudo cp appspec.yml ./
+  - sudo cp build/libs/*.jar ./
   - zip -r intercam *
   - mkdir -p deploy
   - mv intercam.zip deploy/intercam.zip
