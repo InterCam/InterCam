@@ -8,13 +8,10 @@
     <div id="mainWrapper">
 
         <ul>
-            <!-- 게시판 제목 -->
             <li>자주하는 질문(FAQ)</li>
 
-            <!-- 게시판 목록  -->
             <li>
                 <ul id="ulTable">
-                    <!-- 게시물이 출력될 영역 -->
                     <li>
                         <ul th:each="faq:${faqList}">
                             <li style="display: inherit">

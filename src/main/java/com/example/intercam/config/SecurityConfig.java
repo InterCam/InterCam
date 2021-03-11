@@ -38,11 +38,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-        .headers().disable();
+        http.csrf().disable();
 
         http.authorizeRequests()
-                .antMatchers("/","/join", "/assets/**", "/css/**", "/faq/**", "/notice/**", "/js/**","/Images/**").permitAll()
+                .antMatchers("/","/join", "/assets/**", "/css/**", "/faq/**", "/notice/**", "/js/**","/Images/**", "/analyst","/change","/list/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated() //그외는 인증해야함
                 .accessDecisionManager(myAccessDecisionManager())

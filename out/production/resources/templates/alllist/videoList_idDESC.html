@@ -11,8 +11,8 @@
 
         <div class="row" th:each="videoList:${videoLists}">
             <div class="col-sm-1" th:text="${videoList.id}"></div>
-            <div class="col-sm-7"><a href="#" th:text="${videoList.title}"></a></div>
-            <div class="col-sm-2" th:text="${videoList.username}"></div>
+            <div class="col-sm-7"><a th:text="${videoList.title}" th:href="@{/list/detail/?id=}+${videoList.id}"></a></div>
+            <div class="col-sm-2" th:text="${videoList.name}"></div>
             <div class="col-sm-2" th:text="${videoList.avgScore}"></div>
         </div>
         <button class="btn btn-sm btn-success" style="margin:1% 73%;" onclick="location.href='/upload'">등록</button>

@@ -12,6 +12,7 @@ public class VideoResponseDto {
     private String url;
     private String username;
     private String graph;
+    private String name;
 
     public VideoResponseDto(VideoList videoList) {
         this.id = videoList.getListId();
@@ -20,5 +21,6 @@ public class VideoResponseDto {
         this.url = videoList.getVideo_id().getUrl();
         this.username = videoList.getUserId().getUsername();
         this.graph = videoList.getVideo_id().getGraph();
+        this.name = videoList.getUserId().getName();
     }
 }

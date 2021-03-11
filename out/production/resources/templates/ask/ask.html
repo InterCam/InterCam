@@ -5,24 +5,27 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-<!--고객지원/ 질문보내기-->
+
     <article>
         <div class="container" role="main">
-            <h2>공지사항 입력하기</h2>
-            <form name="form" id="form" role="form" method="post" th:action="@{/admin/notice/write}">
+            <h2>질문 보내기</h2>
+<!--            TODO 질문 보내기-->
+            <form>
                 <div class="mb-3">
                     <label for="title">제목</label>
                     <input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해 주세요">
                 </div>
 
                 <div class="mb-3">
-                    <label for="content">내용</label>
+                    <label for="content">질문 사항</label>
                     <textarea style="resize: none;" class="form-control" rows="20" name="content" id="content" placeholder="내용을 입력해 주세요" ></textarea>
                 </div>
 
                 <div>
-                    <button type="submit" class="btn btn-sm btn-success" style=" margin:1% 88.5%;">공지사항 올리기</button>
+                    <button type="submit" class="btn btn-sm btn-success" style=" margin:1% 88.5%;">질문 보내기</button>
                 </div>
+                <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+                <script th:src="@{/js/ask.js}"></script>
             </form>
         </div>
     </article>

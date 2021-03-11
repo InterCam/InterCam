@@ -26,7 +26,6 @@
         <ul class="board">
             <ul th:each="noticeList:${noticeList}">
                 <li class="fl tc w70 list t_line lt_line" th:text="${noticeList.id}"></li>
-
                 <li class="fl tc w500 list t_line lt_line">
                     <a th:href="@{/notice/contents/(id=${noticeList.id})}" th:text="${noticeList.title}"></a>
                 </li>

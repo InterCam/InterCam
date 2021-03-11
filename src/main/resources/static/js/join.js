@@ -1,4 +1,4 @@
-var main2 = {
+var main3 = {
     init : function () {
         var _this = this;
         $('#btn').on('click', function () {
@@ -19,7 +19,7 @@ var main2 = {
             url: '/join',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data),
-        }).done(function(res){
+        }).done(function(){
             alert("회원가입에 성공하셨습니다!");
             window.location.href="/login";
         }).fail(function(error){
@@ -29,4 +29,4 @@ var main2 = {
     }
 };
 
-main2.init();
+main3.init();

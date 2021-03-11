@@ -41,6 +41,4 @@ public class NoticeService {
     public void saveNotice(NoticeRequestDto noticeRequestDto){
         noticeRepository.save(noticeRequestDto.toEntity());
     }
-    
-    //TODO 후순위. Notice 수정 기능
 }

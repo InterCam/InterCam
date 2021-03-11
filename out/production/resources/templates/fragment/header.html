@@ -25,14 +25,12 @@
                     <li class="nav-item dropdown">
                         <button class="dropbtn">My인터뷰</button>
                         <div class="dropdown-content">
-                            <!--TODO 등록 & 나의 리스트-->
                             <a th:href="@{/upload}">등록</a>
                             <a th:href="@{/myvideo}">나의리스트</a>
                         </div>
                     </li>
 
                     <li class="dropdown">
-                        <!--TODO 모든 리스트 링크-->
                         <button class="dropbtn">All인터뷰</button>
                         <div class="dropdown-content">
                             <a th:href="@{/list/videoList}">리스트</a>
@@ -40,7 +38,6 @@
                     </li>
 
                     <li class="dropdown">
-                        <!--TODO 순위 리스트 링크-->
                         <button class="dropbtn">순위</button>
                         <div class="dropdown-content">
                             <a th:href="@{/list/videoRankList}">리스트</a>
@@ -48,9 +45,9 @@
                     </li>
 
                     <li class="dropdown">
-                        <!--TODO 소개 리스트 링크-->
                         <button class="dropbtn">소개</button>
                         <div class="dropdown-content">
+<!--                            TODO 사용방법 다운로드-->
                             <a th:href="@{/analyst}">평가원 소개</a>
                             <a href="#">사용방법 (다운로드)</a>
                         </div>
@@ -61,8 +58,7 @@
                         <div class="dropdown-content">
                             <a th:href="@{/notice}">공지사항</a>
                             <a th:href="@{/faq}">FAQ</a>
-                            <!--TODO 질문 보내기 링크 & 로직 구현-->
-                            <a th:href="@{/admin/notice/write}">질문보내기</a>
+                            <a th:href="@{/asking}">질문보내기</a>
                         </div>
                     </li>
 
