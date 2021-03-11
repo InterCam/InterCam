@@ -17,7 +17,7 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r intercam *
+  - zip -r intercam ./*
   - mkdir -p deploy
   - mv intercam.zip deploy/intercam.zip
 
