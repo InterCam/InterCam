@@ -5,34 +5,31 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-    <link rel="stylesheet" th:href="@{/css/common/list.css}"/>
-    <style>
-        #container a {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{/css/common/notice.css}"/>
+    <h2>공지사항</h2>
 
-    <div id="container">
+    <div id="container" style="overflow: hidden; margin: 20px; padding-left: 350px; font-size:15px">
+        <div class="row">
+            <div class="col-sm-1" text align="center" style="font-weight: 900; font-size: 17px;">번호</div>
+            <div class="col-sm-7" text align="center" style="font-weight: 900; font-size: 17px;">제목</div>
+            <div class="col-sm-2" text align="center" style="font-weight: 900; font-size: 17px;">조회수</div>
+            <hr align="center" style="border: solid 1px green; width: 80%">
+        </div>
+            <div class="row" th:each="noticeList:${noticeList}">
+                <div class="col-sm-1" text align="center" th:text="${noticeList.id}"></div>
+                <div class="col-sm-7" text align="center"><a th:href="@{/notice/contents/(id=${noticeList.id})}" th:text="${noticeList.title}"></a></div>
+                <div class="col-sm-2"text align="center" th:text="${noticeList.views}"></div>
+                <hr align="center" style="border: solid 1px green; width: 80%">
+            </div>
 
-        <ul class="board">
-            <h2>Notice 리스트</h2>
-            <ul>
-                <li class="fl tc w70 title t_line">번호</li>
-                <li class="fl tc w500 title t_line">제목</li>
-                <li class="fl tc w100 title t_line">조회수</li>
-            </ul>
-        </ul>
-        <!--- 리스트 --->
-        <ul class="board">
-            <ul th:each="noticeList:${noticeList}">
-                <li class="fl tc w70 list t_line lt_line" th:text="${noticeList.id}"></li>
-                <li class="fl tc w500 list t_line lt_line">
-                    <a th:href="@{/notice/contents/(id=${noticeList.id})}" th:text="${noticeList.title}"></a>
-                </li>
-                <li class="fl tc w100 list t_line lt_line"th:text="${noticeList.views}"></li>
-            </ul>
-        </ul>
+            <button class="btn btn-sm btn-success" style="margin:1% 78%;" onclick="location.href='/admin/notice/write'" th:if="${auth} == ADMIN">등록</button>
+        </div>
+    <div align="center">
+        <span th:each="pageNum : ${pageList}" th:inline="text">
+            <a th:href="@{'/notice/?page='+${pageNum}}">[[${pageNum}]]</a>
+        </span>
     </div>
+    <hr style="visibility:hidden">
 </div>
-
 </html>
+

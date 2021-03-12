@@ -12,6 +12,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -23,11 +24,15 @@ public class VideoListController {
     private final VideoService videoService;
 
     @GetMapping("/list/videoList")
-    public String videoList(Model model, String page){
-        List<VideoResponseDto> videoLists = videoListService.getVideoList(page);
-        model.addAttribute("videoLists", videoLists);
+    public String videoList(Model model, @RequestParam(value = "page", defaultValue = "1") Integer pageNum){
 
-        return "alllist/videoList_idDESC";
+        List<VideoResponseDto> videoLists = videoListService.getVideoList(pageNum);
+        Integer[] pageList = videoListService.getPageList(pageNum); // 전체 페이지 수 가져와야 함.
+
+        model.addAttribute("videoLists", videoLists);
+        model.addAttribute("pageList", pageList);
+
+        return "/alllist/videoList_idDESC";
     }
 
     @GetMapping("/list/videoRankList")
@@ -36,13 +41,13 @@ public class VideoListController {
 
         model.addAttribute("videoLists", videoResponseDtos);
 
-        return "alllist/videoRankList";
+        return "/alllist/videoRankList";
     }
 
     @GetMapping("/list/detail")
     public String detailList(Long id , Model model, @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:userResponseDto") UserResponseDto userResponseDto){
 
-        videoService.checkfile(id);
+        videoService.checkfile(userResponseDto);
 
         VideoResponseDto videoResponseDto = videoListService.avgScore(id);
         List<CommentResponseDto> commentResponseDtos = commentService.findComments(id);
@@ -55,9 +60,9 @@ public class VideoListController {
 
         if(userResponseDto == null || userResponseDto.getAuth() == Auth.USER){
             model.addAttribute("error", "login.please");
-            return "File/detail";
+            return "/File/detail";
         }
-        return "File/detail";
+        return "/File/detail";
     }
 
 }

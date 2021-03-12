@@ -4,27 +4,16 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
-
 <div layout:fragment="content">
     <link rel="stylesheet" th:href="@{/css/common/notice.css}"/>
+    <h2>공지사항</h2>
 
-    <style>
-        #container a {
-            display: block;
-        }
-    </style>
-
-    <ul class="board">
-        <h2>공지사항</h2>
-        <ul>
-            <li class="fl tc w1000 title t_line" th:text="${notice.title}"></li>
-        </ul>
-    </ul>
-
-    <ul class="board">
-        <li class="fl tc w1000 list t_line lt_line">
-            <p th:text="${notice.content}"></p>
-        </li>
-    </ul>
+    <div id="container" style="overflow: hidden; margin:50px; padding-left: 500px; font-size:16px">
+        <div class="row">
+        <div class="col-sm-7" text align="center" th:text="${notice.title}"></div>
+            <hr align="center" style="border: solid 1px green; width: 61%">
+            <div class="col-sm-7" text align="center" th:text="${notice.content}"></div>
+        </div>
+    </div>
 </div>
 </html>

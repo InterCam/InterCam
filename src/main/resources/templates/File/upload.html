@@ -4,8 +4,8 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-    <article>
-        <div class="container" role="main">
+    <body id="back">
+    <div class="container" style=" overflow: hidden;" role="main" >
             <h1 align="center">파일 업로드</h1>
             <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
                 <div class="mb-3">
@@ -18,11 +18,10 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="btn btn-sm btn-success" style=" margin:1% 88.5%;">동영상 올리기</button>
+                    <button type="submit" class="btn btn-sm btn-success" style=" margin:1% 92%;">동영상 올리기</button>
                 </div>
             </form>
         </div>
-    </article>
-
+    </body>
 </div>
 </html>

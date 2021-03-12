@@ -2,16 +2,23 @@ package com.example.intercam.controller;
 
 import com.example.intercam.dto.NoticeRequestDto;
 import com.example.intercam.dto.NoticeResponseDto;
+import com.example.intercam.dto.UserResponseDto;
+import com.example.intercam.dto.VideoResponseDto;
+import com.example.intercam.entity.Auth;
 import com.example.intercam.entity.Notice;
 import com.example.intercam.service.NoticeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
@@ -20,12 +27,23 @@ public class NoticeController {
     private final NoticeService noticeService;
 
     @GetMapping("/notice")
-    public String list(@PageableDefault Pageable pageable, Model model){
+    public String list(@RequestParam(value = "page", defaultValue = "1") Integer page, Model model,
+                       @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:userResponseDto")
+                               UserResponseDto userResponseDto){
 
-        Page<Notice> list = noticeService.findAllDesc(pageable);
+        if(userResponseDto == null){
+            model.addAttribute("auth",null);
 
-        model.addAttribute("noticeList", list);
-        model.addAttribute("pageNumber",list.getTotalPages());
+        } else {
+            model.addAttribute("auth", userResponseDto.getAuth().toString());
+            System.out.println(userResponseDto.getAuth());
+        }
+
+        List<NoticeRequestDto> noticeList = noticeService.getNoticeList(page);
+        Integer[] pageList = noticeService.getPageList(page);
+
+        model.addAttribute("noticeList", noticeList);
+        model.addAttribute("pageList", pageList);
 
         return "customer/noticelist";
     }

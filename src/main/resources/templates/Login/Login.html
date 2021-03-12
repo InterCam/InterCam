@@ -8,7 +8,7 @@
     <link th:href="@{/css/common/icons.min.css}" rel="stylesheet" type="text/css" />
     <link th:href="@{/css/common/app.min.css}" id="app-style" rel="stylesheet" type="text/css" />
     <!--    로그인-->
-
+    <body id="back">
     <div class="account-pages my-5 pt-sm-5">
         <div class="container">
             <div class="row justify-content-around">
@@ -27,6 +27,7 @@
                         <div class="card-body pt-0">
                             <div>
                                 <a href="/">
+                                    <!--TODO Main페이지로 돌아갈 이미지-->
                                     <div class="avatar-md profile-user-wid mb-4">
                                         <span class="avatar-title rounded-circle bg-light"><img th:src="@{/assets/images/logo.svg}" alt="" class="rounded-circle" height="34"></span>
                                     </div>
@@ -54,6 +55,7 @@
                                         <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">로그인</button>
                                     </div>
 
+                                    <!--TODO 비밀번호찾는 링크-->
                                     <div class="mt-4 text-center">
                                         <a href="/change" class="text-muted"><i class="fas fa-lock"></i> 비밀번호찾기</a>
                                     </div>
@@ -73,7 +75,7 @@
         </div>
 
     </div>
-
+    </body>
 </div>
 
 </html>

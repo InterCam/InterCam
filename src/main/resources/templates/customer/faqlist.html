@@ -5,13 +5,169 @@
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
     <link rel="stylesheet" th:href="@{/css/common/board.css}"/>
+    <script>
+        $(document).ready(function(){
+            $("#faq1").click(function(){
+                $("#contents1").slideToggle();
+                $("#contents2").slideUp();
+                $("#contents3").slideUp()
+                $("#contents4").slideUp()
+                $("#contents5").slideUp()
+                $("#contents6").slideUp()
+                $("#contents7").slideUp()
+                $("#contents8").slideUp()
+                $("#contents9").slideUp()
+                $("#contents10").slideUp()
+                $("#contents11").slideUp()
+            });
+            $("#faq2").click(function(){
+                $("#contents1").slideUp();
+                $("#contents2").slideToggle();
+                $("#contents3").slideUp()
+                $("#contents4").slideUp()
+                $("#contents5").slideUp()
+                $("#contents6").slideUp()
+                $("#contents7").slideUp()
+                $("#contents8").slideUp()
+                $("#contents9").slideUp()
+                $("#contents10").slideUp()
+                $("#contents11").slideUp()
+            });
+            $("#faq3").click(function(){
+                $("#contents1").slideUp();
+                $("#contents2").slideUp();
+                $("#contents3").slideToggle()
+                $("#contents4").slideUp()
+                $("#contents5").slideUp()
+                $("#contents6").slideUp()
+                $("#contents7").slideUp()
+                $("#contents8").slideUp()
+                $("#contents9").slideUp()
+                $("#contents10").slideUp()
+                $("#contents11").slideUp()
+            });
+            $("#faq4").click(function(){
+                $("#contents1").slideUp();
+                $("#contents2").slideUp();
+                $("#contents3").slideUp()
+                $("#contents4").slideToggle()
+                $("#contents5").slideUp()
+                $("#contents6").slideUp()
+                $("#contents7").slideUp()
+                $("#contents8").slideUp()
+                $("#contents9").slideUp()
+                $("#contents10").slideUp()
+                $("#contents11").slideUp()
+            });
+            $("#faq5").click(function(){
+                $("#contents1").slideUp();
+                $("#contents2").slideUp();
+                $("#contents3").slideUp()
+                $("#contents4").slideUp()
+                $("#contents5").slideToggle()
+                $("#contents6").slideUp()
+                $("#contents7").slideUp()
+                $("#contents8").slideUp()
+                $("#contents9").slideUp()
+                $("#contents10").slideUp()
+                $("#contents11").slideUp()
+
+            });
+            $("#faq6").click(function(){
+                $("#contents1").slideUp();
+                $("#contents2").slideUp();
+                $("#contents3").slideUp()
+                $("#contents4").slideUp()
+                $("#contents5").slideUp()
+                $("#contents6").slideToggle()
+                $("#contents7").slideUp()
+                $("#contents8").slideUp()
+                $("#contents9").slideUp()
+                $("#contents10").slideUp()
+                $("#contents11").slideUp()
+
+            });
+            $("#faq7").click(function(){
+                $("#contents1").slideUp();
+                $("#contents2").slideUp();
+                $("#contents3").slideUp()
+                $("#contents4").slideUp()
+                $("#contents5").slideUp()
+                $("#contents6").slideUp()
+                $("#contents7").slideToggle()
+                $("#contents8").slideUp()
+                $("#contents9").slideUp()
+                $("#contents10").slideUp()
+                $("#contents11").slideUp()
+            });
+            $("#faq8").click(function(){
+                $("#contents1").slideUp();
+                $("#contents2").slideUp();
+                $("#contents3").slideUp()
+                $("#contents4").slideUp()
+                $("#contents5").slideUp()
+                $("#contents6").slideUp()
+                $("#contents7").slideUp()
+                $("#contents8").slideToggle()
+                $("#contents9").slideUp()
+                $("#contents10").slideUp()
+                $("#contents11").slideUp()
+
+            });
+            $("#faq9").click(function(){
+                $("#contents1").slideUp();
+                $("#contents2").slideUp();
+                $("#contents3").slideUp()
+                $("#contents4").slideUp()
+                $("#contents5").slideUp()
+                $("#contents6").slideUp()
+                $("#contents7").slideUp()
+                $("#contents8").slideUp()
+                $("#contents9").slideToggle()
+                $("#contents10").slideUp()
+                $("#contents11").slideUp()
+
+            });
+            $("#faq10").click(function(){
+                $("#contents1").slideUp();
+                $("#contents2").slideUp();
+                $("#contents3").slideUp()
+                $("#contents4").slideUp()
+                $("#contents5").slideUp()
+                $("#contents6").slideUp()
+                $("#contents7").slideUp()
+                $("#contents8").slideUp()
+                $("#contents9").slideUp()
+                $("#contents10").slideToggle()
+                $("#contents11").slideUp()
+
+            });
+            $("#faq11").click(function(){
+                $("#contents1").slideUp();
+                $("#contents2").slideUp();
+                $("#contents3").slideUp()
+                $("#contents4").slideUp()
+                $("#contents5").slideUp()
+                $("#contents6").slideUp()
+                $("#contents7").slideUp()
+                $("#contents8").slideUp()
+                $("#contents9").slideUp()
+                $("#contents10").slideUp()
+                $("#contents11").slideToggle()
+            });
+        });
+    </script>
+
     <div id="mainWrapper">
 
         <ul>
-            <li>자주하는 질문(FAQ)</li>
+            <!-- 게시판 제목 -->
+            <h2>자주하는 질문(FAQ)</h2>
 
+            <!-- 게시판 목록  -->
             <li>
                 <ul id="ulTable">
+                    <!-- 게시물이 출력될 영역 -->
                     <li>
                         <ul th:each="faq:${faqList}">
                             <li style="display: inherit">
@@ -24,38 +180,8 @@
             </li>
 
         </ul>
-        <button class="btn btn-sm btn-success" style=" margin:1% 85%;">등록</button>
-
-        <script>
-            $(document).ready(function(){
-                $("#faq1").click(function(){
-                    $("#contents1").slideToggle();
-                    $("#contents2").slideUp();
-                    $("#contents3").slideUp()
-                    $("#contents4").slideUp()
-                    $("#contents5").slideUp()
-                    $("#contents6").slideUp()
-                    $("#contents7").slideUp()
-                    $("#contents8").slideUp()
-                    $("#contents9").slideUp()
-                    $("#contents10").slideUp()
-                    $("#contents11").slideUp()
-                });
-                $("#faq2").click(function(){
-                    $("#contents1").slideUp();
-                    $("#contents2").slideToggle();
-                    $("#contents3").slideUp()
-                    $("#contents4").slideUp()
-                    $("#contents5").slideUp()
-                    $("#contents6").slideUp()
-                    $("#contents7").slideUp()
-                    $("#contents8").slideUp()
-                    $("#contents9").slideUp()
-                    $("#contents10").slideUp()
-                    $("#contents11").slideUp()
-                });
-            });
-        </script>
     </div>
+
 </div>
 </html>
+

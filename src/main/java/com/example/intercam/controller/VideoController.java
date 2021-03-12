@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class VideoController {
 
     //업로드
     @PostMapping("/upload")
-    public String upload(@NotNull String title, MultipartFile file, @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:user") User user) throws IOException {
+    public String upload(String title, MultipartFile file, @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:user") User user) throws IOException {
 
         if(!file.getOriginalFilename().endsWith(".mp4")){
             throw new IllegalArgumentException("재생할 수 없는 파일!");
@@ -40,7 +39,7 @@ public class VideoController {
         String url = s3Service.upload(file);
         videoService.saveVideo(title, url, user);
 
-        return "redirect:/";
+        return "redirect:/upload";
     }
 
     // 내비디오

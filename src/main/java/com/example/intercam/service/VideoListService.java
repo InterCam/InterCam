@@ -6,6 +6,8 @@ import com.example.intercam.dto.VideoResponseDto;
 import com.example.intercam.entity.Comment;
 import com.example.intercam.entity.VideoList;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,17 +19,19 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class VideoListService {
+    private static final int BLOCK_PAGE_NUM_COUNT = 10;
+    private static final int PAGE_POST_COUNT = 10;
 
     private final VideoListRepository videoListRepository;
     private final CommentRepository commentRepository;
 
     @Transactional
-    public List<VideoResponseDto> getVideoList(String page) {
+    public List<VideoResponseDto> getVideoList(Integer page) {
         int real_page = 0;
         if(page==null){
             real_page = 1;
         }else {
-            real_page = Integer.parseInt(page);
+            real_page = page;
         }
 
         List<VideoList> videoLists = videoListRepository.findAll(Sort.by("listId").descending());
@@ -102,4 +106,24 @@ public class VideoListService {
 
         commentRepository.save(comment);
     }
+
+    public Integer[] getPageList(Integer currentPage){
+        Integer[] pageList = new Integer[BLOCK_PAGE_NUM_COUNT];
+
+        List<VideoList> count = videoListRepository.findAll();
+        Double totalList = Double.valueOf(count.size());
+
+        Integer totalLastPageNum = (int)(Math.ceil(totalList/PAGE_POST_COUNT));
+
+        Integer blockLastPageNum = (totalLastPageNum > currentPage + BLOCK_PAGE_NUM_COUNT)?
+                currentPage + BLOCK_PAGE_NUM_COUNT : totalLastPageNum;
+
+        currentPage = (currentPage <= 3) ? 1: currentPage-2;
+
+        for(int val=currentPage, i = 0; val <= blockLastPageNum; val++, i++){
+            pageList[i] = val;
+        }
+        return pageList;
+    }
+
 }

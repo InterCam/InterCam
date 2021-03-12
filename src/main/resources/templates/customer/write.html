@@ -1,13 +1,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-
       xmlns:th="http://www.thymeleaf.org"
-
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
 <!--고객지원/ 질문보내기-->
+    <body id="back">
     <article>
-        <div class="container" role="main">
+        <div class="container" style="overflow: hidden;" role="main">
             <h2>공지사항 입력하기</h2>
             <form name="form" id="form" role="form" method="post" th:action="@{/admin/notice/write}">
                 <div class="mb-3">
@@ -21,11 +20,12 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="btn btn-sm btn-success" style=" margin:1% 88.5%;">공지사항 올리기</button>
+                    <button type="submit" class="btn btn-sm btn-success" style=" margin:1% 91%;">공지사항 올리기</button>
                 </div>
             </form>
         </div>
     </article>
 </form>
+    </body>
 </div>
 </html>

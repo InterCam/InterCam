@@ -9,7 +9,7 @@
     <link th:href="@{/css/common/app.min.css}" id="app-style" rel="stylesheet" type="text/css"/>
 
 <!--    평가원 회원가입-->
-
+    <body id="back">
     <div class="account-pages my-5 pt-sm-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -29,6 +29,7 @@
                             <div>
                                 <a href="/">
                                     <div class="avatar-md profile-user-wid mb-4">
+                                        <!-- TODO Main페이지로 돌아갈 이미지 -->
                                         <span class="avatar-title rounded-circle bg-light"><img th:src="@{/assets/images/logo.svg}" alt="" class="rounded-circle" height="34"></span>
                                     </div>
                                 </a>
@@ -85,5 +86,6 @@
             </div>
         </div>
     </div>
+    </body>
 </div>
 </html>

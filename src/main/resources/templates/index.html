@@ -2,11 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org"
-      layout:decorate="layout/common_layout"
->
+      layout:decorate="layout/common_layout">
 <div layout:fragment="content">
 
-
+<body id="back">
     <!--    네비게이션바를 제외한 밑에 부분-->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -17,7 +16,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="Images/시그널.jpg" alt="Image" style="max-width: 90%; height:400px">
+                <img src="Images/시그널.jpg" alt="Image" style="max-width: 90%; height:500px">
                 <div class="carousel-caption">
                     <h3>시그널</h3>
                     <p>12.5%</p>
@@ -25,7 +24,7 @@
             </div>
 
             <div class="item">
-                <img src="Images/도깨비.jpg" alt="Image" style="max-width: 90%; height:400px">
+                <img src="Images/도깨비.jpg" alt="Image" style="max-width: 90%; height:500px">
                 <div class="carousel-caption">
                     <h3>도깨비</h3>
                     <p>20.5%</p>
@@ -49,21 +48,25 @@
 
         <div class="row">
             <div class="col-md-6 col-sm-4">
+                <!--            <img src="/image/upload.jpg" class="img-responsive" style="width:100%" alt="Image">-->
                 <p> <button type="button" onclick="location.href='/upload'" class="btn btn-sm btn-success" style="padding: 29px 130px; font-size: 15px;
                    border-radius: 60px;">동영상올리기</button></p>
             </div>
 
             <div class="col-md-6 col-sm-4">
+                <!--            <img src="/image/list.png" class="img-responsive" style="width:97%" alt="Image">-->
                 <p> <button type="button" onclick="location.href='/list/videoList'" class="btn btn-sm btn-danger" style="padding: 29px 110px; font-size: 15px;
                    border-radius: 60px;">동영상 리스트</button></p>
             </div>
         </div>
         <div class="row" style="margin-left: 0;">
             <div class="col-md-6 col-sm-4">
+                <!--                            <img src="/image/rank.jpg" class="img-responsive" style="width:100%" alt="Image">-->
                 <p> <button type="button" onclick="location.href='/list/videoRankList'" class="btn btn-sm btn-warning" style="padding: 29px 120px; font-size: 15px;
                    border-radius: 60px;">동영상 순위보기</button></p>
             </div>
             <div class="col-md-6 col-sm-4">
+                <!--            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">-->
                 <p> <button type="button" onclick="location.href='/notice'" class="btn btn-sm btn-info" style="padding: 29px 127px; font-size: 15px;
                    border-radius: 60px;">공지사항</button></p>
             </div>
@@ -72,6 +75,6 @@
 
 
     </div><br>
-
+</body>
 </div>
 </html>

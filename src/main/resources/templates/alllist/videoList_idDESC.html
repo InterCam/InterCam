@@ -4,18 +4,33 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-    <link rel="stylesheet" th:href="@{/css/common/list.css}"/>
+    <link rel="stylesheet" th:href="@{/css/common/notice.css}"/>
     <!-- all인터뷰-->
-    <div id="container">
-        <h2>All 인터뷰 리스트</h2>
+    <h2>All 인터뷰 리스트</h2>
+
+    <div id="container" style="overflow: hidden; margin: 10px; padding-left: 50px; font-size: 15px">
+        <div class="row">
+            <div class="col-sm-1" text align="center" style="font-weight: 900; font-size: 17px;">번호</div>
+            <div class="col-sm-7" text align="center" style="font-weight: 900; font-size: 17px;">제목</div>
+            <div class="col-sm-2" text align="center" style="font-weight: 900; font-size: 17px;">작성자</div>
+            <div class="col-sm-2" text align="center" style="font-weight: 900; font-size: 17px;">평점</div>
+            <hr align="center" style="border: solid 1px green; width: 96%">
+        </div>
+
 
         <div class="row" th:each="videoList:${videoLists}">
-            <div class="col-sm-1" th:text="${videoList.id}"></div>
-            <div class="col-sm-7"><a th:text="${videoList.title}" th:href="@{/list/detail/?id=}+${videoList.id}"></a></div>
-            <div class="col-sm-2" th:text="${videoList.name}"></div>
-            <div class="col-sm-2" th:text="${videoList.avgScore}"></div>
+            <div class="col-sm-1" text align="center" th:text="${videoList.id}"></div>
+            <div class="col-sm-7" text align="center"><a th:href="@{/list/detail/(id=${videoList.id})}" th:text="${videoList.title}"></a></div>
+            <div class="col-sm-2" text align="center" th:text="${videoList.username}"></div>
+            <div class="col-sm-2" text align="center" th:text="${videoList.avgScore}"></div>
+            <hr align="center" style="border: solid 1px green; width: 96%">
         </div>
-        <button class="btn btn-sm btn-success" style="margin:1% 73%;" onclick="location.href='/upload'">등록</button>
+        <button class="btn btn-sm btn-success" style="margin:1% 94%;" onclick="location.href='/upload'">등록</button>
+    </div>
+    <div align="center">
+        <span th:each="pageNum : ${pageList}" th:inline="text">
+            <a th:href="@{'/list/videoList/?page='+${pageNum}}">[[${pageNum}]]</a>
+        </span>
     </div>
 </div>
 </html>

@@ -7,7 +7,7 @@
     <link th:href="@{/css/common/bootstrap.min.css}" id="bootstrap-style" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/common/icons.min.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/common/app.min.css}" id="app-style" rel="stylesheet" type="text/css"/>
-
+    <body id="back">
 <!--    비밀번호변경-->
     <div class="account-pages my-5 pt-sm-5">
         <div class="container">
@@ -28,6 +28,7 @@
                             <div>
                                 <a href="/">
                                     <div class="avatar-md profile-user-wid mb-4">
+                                        <!-- TODO Main페이지로 돌아갈 이미지 -->
                                         <span class="avatar-title rounded-circle bg-light"><img th:src="@{/assets/images/logo.svg}" alt="" class="rounded-circle" height="34"></span>
                                     </div>
                                 </a>
@@ -65,5 +66,6 @@
             </div>
         </div>
     </div>
+    </body>
 </div>
 </html>

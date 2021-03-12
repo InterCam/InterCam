@@ -5,17 +5,25 @@
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
     <link rel="stylesheet" th:href="@{/css/common/video.css}"/>
-<!--    순위/리스트-->
-    <div class="container">
+    <body id="back">
+    <!--    순위/리스트-->
+    <div class="container" style="overflow: hidden">
+<h2 text align="center">영상 순위</h2>
         <div th:each="videoList:${videoLists}">
-            <video width="500" height="300" poster="#" muted controls>
-                <source th:src="${videoList.url}" type="video/mp4">
-            </video>
-            <li><a th:text="${videoList.title}" th:href="@{/list/detail/?id=}+${videoList.id}"></a></li>
-            <li th:text= "'작성자:' + ${videoList.name}"></li>
+
+            <video th:src="${videoList.url}" style="max-width:60%; margin-left: 320px" ></video>
+            <li><a th:href="@{/list/detail/(id=${videoList.id})}" th:text="'제목:' +${videoList.title}"></a></li>
+
+            <li th:text= "'작성자:' + ${videoList.username}"></li>
             <li th:text= "'평점: ' + ${videoList.avgScore}"></li>
             <hr style="visibility:hidden">
+
         </div>
+
+
+
+
     </div>
+    </body>
 </div>
 </html>

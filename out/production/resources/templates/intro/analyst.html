@@ -4,12 +4,13 @@
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
     <link rel="stylesheet" th:href="@{/css/common/analyst.css}" />
+    <body id="back">
     <!--평가원소개-->
     <h2>평가원 소개</h2>
 
-    <div class="card">
+    <div class="card"style="width:700px;">
         <ul th:each="analyst:${analysts}">
-        <div class="container">
+        <div class="card-body">
             <img th:src="|/Images/${analyst.name}.jpg|" alt="analyst" style="max-width: 60%">
             <h4 th:text="${analyst.name}"><b></b></h4>
             <p th:text="${analyst.contents}"></p>
@@ -18,7 +19,7 @@
         </div>
         </ul>
     </div>
-
+    </body>
 </div>
 </html>
 

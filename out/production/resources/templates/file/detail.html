@@ -5,11 +5,15 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="https://www.thymeleaf.org/extras/spring-security"
       layout:decorate="layout/common_layout">
-
-<div layout:fragment="content">
+<!--예쁘게 꾸미기-->
+<div layout:fragment="content" style="overflow: hidden;">
     <link rel="stylesheet" th:href="@{/css/common/list.css}" />
-
+    <body id="back">
     <center>
+
+            <h2 text align="center"><span type="text"  th:text="'제목 :' + ${videoList.title}" aria-disabled="true"></span></h2>
+            <h2 text align="center;" style="margin-left: 200px"><input type="text" th:value="'평점 :' + ${videoList.avgScore}" disabled></h2>
+
         <video autoplay controls loop>
             <source th:src="${videoList.url}" type="video/mp4">
         </video>
@@ -17,19 +21,13 @@
 
         <hr class="col-12 my-4">
 
-        <table>
-            <tr>
-                <td><span type="text" th:text="'제목 :' + ${videoList.title}" aria-disabled="true"></span></td>
-                <td><input type="text" th:value="'평점 :' + ${videoList.avgScore}" disabled></td>
-            </tr>
-        </table>
 
     </center>
 
-    <input th:if="${error} == null" placeholder="점수" name="score" type="number" min="1" max="10">
 
-    <textarea th:if="${error} == null" placeholder="댓글을 입력하세요." style="width:80%;height:150%;border:1" name="comment"></textarea>
-    <button th:if="${error} == null" name="addComment">등록</button>
+    <textarea th:if="${error} == null" placeholder="댓글을 입력하세요." style="width:80%;height:90px;border:1px; margin-left: 80px" name="comment"></textarea>
+    <input th:if="${error} == null" placeholder="점수" name="score" type="number" min="1" max="10" style="margin-left: 10px" >
+    <button th:if="${error} == null" name="addComment" class="btn btn-sm btn-success" style="margin: 1% 85%">등록</button>
     <hr class="col-12 my-4">
 
     <table th:each="comment:${commentList}">
@@ -50,12 +48,17 @@
 
         <tr>
             <td>
-                <input type="text" readonly th:value="${comment.contents}" style="width:80%;height:150%;border:1" disabled>
+                <input type="text" readonly th:value="${comment.contents}" style="width:80%;height:150%;border:1px" disabled>
             </td>
         </tr>
     </table>
 
     <hr>
+
+
+
+
+
     <script>
         function getId(id){
             id = id.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -108,6 +111,6 @@
             });
         }
     </script>
-
+    </body>
 </div>
 </html>

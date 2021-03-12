@@ -22,9 +22,4 @@ public class FAQController {
         model.addAttribute("faqList", faqList);
         return "customer/faqlist";
     }
-
-    @GetMapping("/asking")
-    public String asking(){
-        return "ask/ask";
-    }
 }
