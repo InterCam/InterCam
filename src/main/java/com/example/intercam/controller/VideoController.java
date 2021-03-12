@@ -39,7 +39,7 @@ public class VideoController {
         String url = s3Service.upload(file);
         videoService.saveVideo(title, url, user);
 
-        return "redirect:/upload";
+        return "redirect:/";
     }
 
     // 내비디오

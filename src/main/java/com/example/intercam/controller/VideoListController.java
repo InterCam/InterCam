@@ -32,7 +32,7 @@ public class VideoListController {
         model.addAttribute("videoLists", videoLists);
         model.addAttribute("pageList", pageList);
 
-        return "/alllist/videoList_idDESC";
+        return "alllist/videoList_idDESC";
     }
 
     @GetMapping("/list/videoRankList")
@@ -41,7 +41,7 @@ public class VideoListController {
 
         model.addAttribute("videoLists", videoResponseDtos);
 
-        return "/alllist/videoRankList";
+        return "alllist/videoRankList";
     }
 
     @GetMapping("/list/detail")
@@ -60,9 +60,9 @@ public class VideoListController {
 
         if(userResponseDto == null || userResponseDto.getAuth() == Auth.USER){
             model.addAttribute("error", "login.please");
-            return "/File/detail";
+            return "File/detail";
         }
-        return "/File/detail";
+        return "File/detail";
     }
 
 }
