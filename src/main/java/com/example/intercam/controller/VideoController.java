@@ -42,7 +42,7 @@ public class VideoController {
         return "redirect:/";
     }
 
-    // 내비디오
+    // 내비디오`
     @GetMapping("/myvideo")
     public String myvideo(Model model, @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:userResponseDto") UserResponseDto userResponseDto) {
 
