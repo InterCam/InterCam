@@ -32,6 +32,8 @@ public class VideoController {
     @PostMapping("/upload")
     public String upload(String title, MultipartFile file, @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:user") User user) throws IOException {
 
+        System.out.println(file.getOriginalFilename());
+
         if(!file.getOriginalFilename().endsWith(".mp4")){
             throw new IllegalArgumentException("재생할 수 없는 파일!");
         }
