@@ -47,7 +47,7 @@ public class VideoListController {
     @GetMapping("/list/detail")
     public String detailList(Long id , Model model, @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:userResponseDto") UserResponseDto userResponseDto){
 
-        videoService.checkfile(userResponseDto);
+        videoService.checkfile(id);
 
         VideoResponseDto videoResponseDto = videoListService.avgScore(id);
         List<CommentResponseDto> commentResponseDtos = commentService.findComments(id);

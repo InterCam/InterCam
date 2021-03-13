@@ -77,11 +77,11 @@ public class VideoService {
     }
 
     @Transactional
-    public void checkfile(UserResponseDto userResponseDto) {
+    public void checkfile(Long id) {
         try {
-            User user = userRepository.findByUsername(userResponseDto.getUsername());
+            VideoList videoList = videoListRepository.findById(id).get();
 
-            String url = user.getList_id().get(0).getVideo_id().getUrl();
+            String url = videoList.getVideo_id().getUrl();
             URL url1 = new URL(url);
             URLConnection conn1 = url1.openConnection();
             HttpURLConnection exitCode = (HttpURLConnection) conn1;
