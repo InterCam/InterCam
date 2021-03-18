@@ -6,8 +6,6 @@ import com.example.intercam.dto.VideoResponseDto;
 import com.example.intercam.entity.Comment;
 import com.example.intercam.entity.VideoList;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +22,7 @@ public class VideoListService {
 
     private final VideoListRepository videoListRepository;
     private final CommentRepository commentRepository;
+    private final VideoService videoService;
 
     @Transactional
     public List<VideoResponseDto> getVideoList(Integer page) {
@@ -61,6 +60,8 @@ public class VideoListService {
             if(i>=videoLists.size()){
                 break;
             }
+            videoService.checkfile(videoLists.get(i).getListId());
+
             videoResponseDtos.add(new VideoResponseDto(videoLists.get(i)));
         }
 

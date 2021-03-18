@@ -58,7 +58,7 @@ public class VideoListController {
 
         model.addAttribute("graph",videoResponseDto.getGraph());
 
-        if(userResponseDto == null || userResponseDto.getAuth() == Auth.USER){
+        if(userResponseDto == null || userResponseDto.getAuth() == Auth.USER.name()){
             model.addAttribute("error", "login.please");
             return "File/detail";
         }

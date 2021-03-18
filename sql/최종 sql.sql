@@ -14,6 +14,7 @@ create table user (
 create table analyst (
   contents varchar(255), 
   user_id bigint not null, 
+  img VARCHAR(255),
   primary key (user_id)
 );
 
@@ -50,6 +51,14 @@ create table comment(
   PRIMARY KEY (comment_id)
 );
 
+create table persistent_logins (
+  series varchar(64) not null,
+  last_used datetime not null, 
+  token varchar(64) not null, 
+  username varchar(64) not null, 
+  primary key (series)
+);
+
 create table notice(
   id bigint(20) auto_increment NOT NULL,
   title VARCHAR(255) NOT NULL,
@@ -63,12 +72,4 @@ create table faq(
   title VARCHAR(255) NOT NULL,
   contents VARCHAR(255) NOT NULL,
   PRIMARY KEY (faq_id)
-);
-
-create table persistent_logins (
-  series varchar(64) not null,
-  last_used datetime not null, 
-  token varchar(64) not null, 
-  username varchar(64) not null, 
-  primary key (series)
 );

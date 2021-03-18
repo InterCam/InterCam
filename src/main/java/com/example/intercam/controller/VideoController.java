@@ -32,8 +32,6 @@ public class VideoController {
     @PostMapping("/upload")
     public String upload(String title, MultipartFile file, @AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:user") User user) throws IOException {
 
-        System.out.println(file.getOriginalFilename());
-
         if(!file.getOriginalFilename().endsWith(".mp4")){
             throw new IllegalArgumentException("재생할 수 없는 파일!");
         }
@@ -41,7 +39,7 @@ public class VideoController {
         String url = s3Service.upload(file);
         videoService.saveVideo(title, url, user);
 
-        return "redirect:/upload";
+        return "redirect:/";
     }
 
     // 내비디오`

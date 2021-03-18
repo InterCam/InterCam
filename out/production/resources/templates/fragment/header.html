@@ -63,10 +63,11 @@
                             <a th:href="@{/faq}">FAQ</a>
                         </div>
                     </li>
-                    <li class="dropdown" th:if="${auth} == ADMIN">
+                    <li class="dropdown" sec:authorize="hasRole('ADMIN')">
                         <button class="dropbtn">설정</button>
                         <div class="dropdown-content">
                             <a th:href="@{/admin/notice/write}">공지사항 올리기</a>
+                            <a th:href="@{/admin/analyst}">ANALYST 추가하기</a>
                         </div>
                     </li>
                 </ul>

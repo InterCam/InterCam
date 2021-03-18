@@ -20,8 +20,6 @@ public class RestLoginController {
     public String join(@RequestBody UserJoinDto userJoinDto){
         String username = loginService.join(userJoinDto);
 
-        System.out.println(username);
-
         return username;
     }
 

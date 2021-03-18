@@ -40,8 +40,7 @@ public class User extends BaseTimeEntity {
     private String name;
 
     @Column(columnDefinition = "varchar(32) default 'User'")
-    @Enumerated(EnumType.STRING) // 권한
-    private Auth auth;
+    private String auth;
 
     public User(UserJoinDto userJoinDto) {
         this.username = userJoinDto.getUsername();
@@ -49,7 +48,7 @@ public class User extends BaseTimeEntity {
         this.phone = userJoinDto.getPhone();
         this.birth = userJoinDto.getBirth();
         this.name = userJoinDto.getName();
-        this.auth = Auth.USER;
+        this.auth = Auth.USER.getKey();
     }
 
     public User(@NotNull String username, @NotNull String password,
@@ -60,7 +59,7 @@ public class User extends BaseTimeEntity {
         this.phone = phone;
         this.birth = birth;
         this.name = name;
-        this.auth = Auth.ANALYST;
+        this.auth = Auth.ANALYST.getKey();
     }
 
     public void addVideoList(VideoList videoList){

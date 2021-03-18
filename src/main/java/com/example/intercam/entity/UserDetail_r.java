@@ -31,7 +31,7 @@ public class UserDetail_r implements UserDetails {
         collection.add(new GrantedAuthority() {
             @Override
             public String getAuthority() {
-                return user.getAuth().name();
+                return user.getAuth();
             }
         });
         return collection;

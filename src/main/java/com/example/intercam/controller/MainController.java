@@ -11,7 +11,7 @@ public class MainController {
     @GetMapping({"","/"})
     public String index(@AuthenticationPrincipal(expression = "#this=='anonymousUser'?null:userResponseDto")
                         UserResponseDto userResponseDto, Model model){
-        
+
         if(userResponseDto!=null){
             model.addAttribute("user",userResponseDto);
         }

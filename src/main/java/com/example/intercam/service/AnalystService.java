@@ -2,6 +2,7 @@ package com.example.intercam.service;
 
 import com.example.intercam.Repository.AnalysisRepository;
 import com.example.intercam.Repository.UserRepository;
+import com.example.intercam.config.S3Service;
 import com.example.intercam.dto.AnalystRequestDto;
 import com.example.intercam.dto.AnalystResponseDto;
 import com.example.intercam.entity.Analyst;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,11 +22,12 @@ public class AnalystService {
     private final AnalysisRepository analysisRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final UserRepository userRepository;
+    private final S3Service s3Service;
 
     @Transactional
     public void save(MultipartFile file, AnalystRequestDto analystRequestDto) throws Exception{
-        File file1 = new File("./src/main/resources/static/Images");
-        file.transferTo(new File(file1.getAbsolutePath()+"/"+analystRequestDto.getName()+".jpg"));
+        String url = s3Service.upload(file);
+        analystRequestDto.setImg(url);
 
         analystRequestDto.setPassword(bCryptPasswordEncoder.encode(analystRequestDto.getPassword()));
 
