@@ -4,33 +4,44 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-    <link rel="stylesheet" th:href="@{/css/common/notice.css}"/>
     <!-- all인터뷰-->
     <h2>All 인터뷰 리스트</h2>
 
-    <div id="container" style="overflow: hidden; margin: 10px; padding-left: 50px; font-size: 15px">
-        <div class="row">
-            <div class="col-sm-1" text align="center" style="font-weight: 900; font-size: 17px;">번호</div>
-            <div class="col-sm-7" text align="center" style="font-weight: 900; font-size: 17px;">제목</div>
-            <div class="col-sm-2" text align="center" style="font-weight: 900; font-size: 17px;">작성자</div>
-            <div class="col-sm-2" text align="center" style="font-weight: 900; font-size: 17px;">평점</div>
-            <hr align="center" style="border: solid 1px green; width: 96%">
-        </div>
+    <body>
 
+    <table class="table table-striped" style="font-size: 15px; text-align: center; width: 1200px; margin-left:10%">
+        <thead>
+        <tr>
+            <th style="text-align: center">번호</th>
+            <th style="text-align: center">제목</th>
+            <th style="text-align: center">작성자</th>
+            <th style="text-align: center">평점</th>
+        </tr>
+        </thead>
 
-        <div class="row" th:each="videoList:${videoLists}">
-            <div class="col-sm-1" text align="center" th:text="${videoList.id}"></div>
-            <div class="col-sm-7" text align="center"><a th:href="@{/list/detail/(id=${videoList.id})}" th:text="${videoList.title}"></a></div>
-            <div class="col-sm-2" text align="center" th:text="${videoList.username}"></div>
-            <div class="col-sm-2" text align="center" th:text="${videoList.avgScore}"></div>
-            <hr align="center" style="border: solid 1px green; width: 96%">
-        </div>
-        <button class="btn btn-sm btn-success" style="margin:1% 94%;" onclick="location.href='/upload'">등록</button>
+        <tbody>
+        <tr th:each="videoList:${videoLists}">
+            <td th:text="${videoList.id}"></td>
+            <td><a th:href="@{/list/detail/(id=${videoList.id})}" th:text="${videoList.title}"></a></td>
+            <td th:text="${videoList.username}"></td>
+            <td th:text="${videoList.avgScore}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <div>
+        <a class="btn btn-default" style="margin-left: 1500px" onclick="location.href='/upload'">등록</a>
     </div>
+
     <div align="center">
-        <span th:each="pageNum : ${pageList}" th:inline="text">
-            <a th:href="@{'/list/videoList/?page='+${pageNum}}">[[${pageNum}]]</a>
-        </span>
+            <span th:each="pageNum : ${pageList}" th:inline="text">
+                <a th:href="@{'/list/videoList/?page='+${pageNum}}">[[${pageNum}]]</a>
+            </span>
     </div>
+
+    </body>
+
+
 </div>
 </html>

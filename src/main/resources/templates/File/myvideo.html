@@ -4,21 +4,26 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout/common_layout">
 <div layout:fragment="content">
-    <link rel="stylesheet" th:href="@{/css/common/notice.css}"/>
+    <body>
+
     <h2>내 동영상</h2>
-    <div id="container" style="overflow: hidden; margin: 40px; padding-left: 250px; font-size: 14px">
-        <div class="row">
-            <div class="col-sm-3" text align="center" style="font-weight: 900; font-size: 17px;">제목</div>
-            <div class="col-sm-2" text align="center" style="font-weight: 900; font-size: 17px;">평점</div>
-            <hr align="center" style="border: solid 1px green; width: 80%">
-        </div>
+    <table class="table table-striped" style="font-size: 15px; text-align: center; width: 1200px; margin-left:10%">
+        <thead>
+        <tr>
+            <th style="text-align: center">제목</th>
+            <th style="text-align: center">평점</th>
+        </tr>
+        </thead>
 
+        <tbody>
+        <tr th:each="videoList:${videoList}">
+            <td><a th:href="@{/list/detail/(id=${videoList.id})}" th:text="${videoList.title}"></a></td>
+            <td th:text="${videoList.avgScore}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <hr/>
 
-            <div class="row" th:each="videoList:${videoList}">
-                <div class="col-sm-7" text align="center"><a th:href="@{/list/detail/(id=${videoList.id})}" th:text="${videoList.title}"></a></div>
-                <div class="col-sm-2" text align="center" th:text="${videoList.avgScore}"></div>
-                <hr align="center" style="border: solid 1px green; width: 80%">
-            </div>
-    </div>
-    </div>
+    </body>
+</div>
 </html>

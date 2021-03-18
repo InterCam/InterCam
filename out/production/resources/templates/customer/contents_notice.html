@@ -8,12 +8,22 @@
     <link rel="stylesheet" th:href="@{/css/common/notice.css}"/>
     <h2>공지사항</h2>
 
-    <div id="container" style="overflow: hidden; margin:50px; padding-left: 500px; font-size:16px">
-        <div class="row">
-        <div class="col-sm-7" text align="center" th:text="${notice.title}"></div>
-            <hr align="center" style="border: solid 1px green; width: 61%">
-            <div class="col-sm-7" text align="center" th:text="${notice.content}"></div>
-        </div>
-    </div>
+    <body>
+    <table class="table table-striped" style="font-size: 15px; text-align: center; width: 1200px; margin-left:10%">
+        <thead>
+        <tr>
+            <td th:text="${notice.title}"></td>
+        </tr>
+
+        </thead>
+
+        <tbody>
+        <tr>
+            <td th:text="${notice.content}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <hr/>
+    </body>
 </div>
 </html>
