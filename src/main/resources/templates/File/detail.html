@@ -25,9 +25,11 @@
     </center>
 
 
+    <div sec:authorize="hasRole('ANALYST')">
     <textarea th:if="${error} == null" placeholder="댓글을 입력하세요." style="width:80%;height:90px;border:1px; margin-left: 80px" name="comment"></textarea>
     <input th:if="${error} == null" placeholder="점수" name="score" type="number" min="1" max="10" style="margin-left: 10px" >
     <button th:if="${error} == null" name="addComment" class="btn btn-sm btn-success" style="margin: 1% 85%">등록</button>
+    </div>>
     <hr class="col-12 my-4">
 
     <table th:each="comment:${commentList}">
