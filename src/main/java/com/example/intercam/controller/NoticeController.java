@@ -32,7 +32,7 @@ public class NoticeController {
             model.addAttribute("auth", userResponseDto.getAuth().toString());
         }
 
-        List<NoticeRequestDto> noticeList = noticeService.getNoticeList(page);
+        List<NoticeResponseDto> noticeList = noticeService.getNoticeList(page);
         Integer[] pageList = noticeService.getPageList(page);
 
         model.addAttribute("noticeList", noticeList);

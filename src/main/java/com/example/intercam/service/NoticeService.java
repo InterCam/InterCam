@@ -1,11 +1,9 @@
 package com.example.intercam.service;
 
+import com.example.intercam.Repository.NoticeRepository;
 import com.example.intercam.dto.NoticeRequestDto;
 import com.example.intercam.dto.NoticeResponseDto;
-import com.example.intercam.dto.VideoResponseDto;
 import com.example.intercam.entity.Notice;
-import com.example.intercam.Repository.NoticeRepository;
-import com.example.intercam.entity.VideoList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -68,7 +66,7 @@ public class NoticeService {
     }
 
     @Transactional
-    public List<NoticeRequestDto> getNoticeList(Integer page) {
+    public List<NoticeResponseDto> getNoticeList(Integer page) {
         int real_page = 0;
         if(page==null){
             real_page = 1;
@@ -81,13 +79,13 @@ public class NoticeService {
         int start = 10*(real_page-1);
         int end = 10*real_page;
 
-        List<NoticeRequestDto> noticeRequestDto = new ArrayList<>();
+        List<NoticeResponseDto> noticeRequestDto = new ArrayList<>();
 
         for(int index=start;index<end;index++){
             if(index>=noticeList.size()){
                 break;
             }
-            noticeRequestDto.add(new NoticeRequestDto(noticeList.get(index)));
+            noticeRequestDto.add(new NoticeResponseDto(noticeList.get(index)));
         }
         return noticeRequestDto;
     }
